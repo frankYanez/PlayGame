@@ -10,8 +10,7 @@
 <p>Crearemos una platadorma de Juegos, en donde podras filtrarlo por distintas categorias para poder hacer mejor tu experiencia. Tendra distintos rolles como:</p>
 
 -✔️**Usuario**
-[https://media.giphy.com/media/3JLobBZz6lcUE/giphy.gif](url)
-<div style="width:100%;height:0;padding-bottom:73%;position:relative;"><iframe src="https://giphy.com/embed/3JLobBZz6lcUE" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/homer-simpson-flirting-the-simpsons-3JLobBZz6lcUE">via GIPHY</a></p>
+(https://giphy.com/gifs/homer-simpson-flirting-the-simpsons-3JLobBZz6lcUE)
 -✔️**Administrador**
 
 <h3 align="center">¿Quieres saber mas acerca de nuestro proyecto?</h3>
