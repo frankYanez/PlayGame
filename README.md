@@ -18,7 +18,7 @@ Te dejamos un adelanto del proyecto. Aqui esta la tabla del "DER"
 
 Y tambien te dejamos el codigo SQL de lo que sera nuestra base de datos
 
-[test.pdf](https://github.com/frankYanez/PlayGame/files/12719291/test.pdf)
+[test.zip](https://github.com/frankYanez/PlayGame/files/12720359/test.zip)
 
 <h3 align="center">¿Quieres saber mas acerca de nuestro proyecto?</h3>
 <p align="left">
