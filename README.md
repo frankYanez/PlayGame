@@ -14,7 +14,7 @@ con emails Frankyanez9413@gmail.com y Alexis.ivanoff@hotmail.com
 
 Te dejamos un adelanto del proyecto. Aqui esta la tabla del "DER"
 
-![WhatsApp Image 2023-09-25 at 12 00 47](https://github.com/frankYanez/PlayGame/assets/103048012/6c37a4f8-0782-4e9b-89cc-5996f6e56660)
+![WhatsApp Image 2023-09-25 at 20 39 03](https://github.com/frankYanez/PlayGame/assets/103048012/c1f2b484-3fa7-4afa-9261-15edcc87692f)
 
 Y tambien te dejamos el codigo SQL de lo que sera nuestra base de datos
 
