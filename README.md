@@ -1,19 +1,32 @@
-<h1 align="center">Hola 👋, somos Francisco y Alexis</h1>
-<h3 align="center">con emails Frankyanez9413@gmail.com y Alexis.ivanoff@hotmail.com</h3>
+### Hola 👋, somos Francisco y Alexis
+con emails Frankyanez9413@gmail.com y Alexis.ivanoff@hotmail.com
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=frankyanez&label=Profile%20views&color=0e75b6&style=flat" alt="frankyanez" /> </p>
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=frankyanez" alt="frankyanez" /></a> </p>
+- 🚀 Actualmente estamos trabajando en el **trabajo especial de WEB**
 
-- 🔭 Actualmente estamos trabajando en el **trabajo especial de WEB**
+<h3 align="center"> Tematica </h3>
+<p>Crearemos una plataforma de Juegos, en donde podras filtrarlo por distintas categorias para poder hacer mejor tu experiencia. Tendra distintos rolles como:</p>
 
-<h3 align="left">Connect with me:</h3>
+-✔️**Usuario**
+
+-✔️**Administrador**
+
+
+Te dejamos un adelanto del proyecto. Aqui esta la tabla del "DER"
+
+![WhatsApp Image 2023-09-25 at 20 39 03](https://github.com/frankYanez/PlayGame/assets/103048012/c1f2b484-3fa7-4afa-9261-15edcc87692f)
+
+Y tambien te dejamos el codigo SQL de lo que sera nuestra base de datos
+
+[test.zip](https://github.com/frankYanez/PlayGame/files/12720359/test.zip)
+
+<h3 align="center">¿Quieres saber mas acerca de nuestro proyecto?</h3>
 <p align="left">
 </p>
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.php.net" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="php" width="40" height="40"/> </a> </p>
+<h4 align="center"> Ponte comodo, no tarda mucho...</h4>
 
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=frankyanez&show_icons=true&locale=en&layout=compact" alt="frankyanez" /></p>
+![undefined - Imgur](https://github.com/frankYanez/PlayGame/assets/103048012/0702c475-c488-408e-b514-5875b5e911b1)
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=frankyanez&show_icons=true&locale=en" alt="frankyanez" /></p>
+
+
