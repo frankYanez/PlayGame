@@ -1,0 +1,57 @@
+<?php
+require __DIR__ . '/controller/JuegoController.php';
+require __DIR__ . '/controller/LoginController.php';
+
+// define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
+
+// En el head html:   <base href="'.BASE_URL.'">
+
+
+// SERVER_NAME: Nombre del server (localhost)
+// SERVER_PORT: Nro puerto server (por default no se vé)
+// PHP_SELF: El script que se está ejecutando.
+// dirname(): Nos devuelve el directorio del script que le pasemos por parametro.
+
+define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
+
+$url = $_GET['action'];
+
+$partes = explode('/', $url);
+
+$route = $partes[0];
+
+switch ($route) {
+    case '':
+        include './includes/templates/home.phtml';
+        break;
+    case 'juegos':
+        $controller = new JuegoController();
+        $controller->showJuegos();
+        break;
+    case 'login':
+        $controller = new LoginController();
+        $controller->showLogin();
+        break;
+    case 'auth':
+        $controller = new LoginController();
+        $controller->auth();
+        break;
+    case 'categorias':
+        $controller = new JuegoController();
+        $params = explode('/', $url);
+
+        if (isset($params[1])) {
+            $controller->showGamesByCategory(strtolower($params[1]));
+        } else {
+            $controller = new JuegoController();
+            $controller->showCategoria();
+        }
+        break;
+
+    case 'logout':
+        $controller = new LoginController();
+        $controller->logout();
+    default:
+        include './includes/templates/404.php';
+        break;
+}

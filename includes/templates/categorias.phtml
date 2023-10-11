@@ -1,0 +1,15 @@
+<?php
+include __DIR__ . '../../templates/header.phtml';
+
+$categorias = array("Aventura", "Estrategia", "Deportes", "Acción", "Rol", "Otros");
+?>
+
+<section class="categoriasSect">
+    <h2>Categorias</h2>
+
+    <?php foreach ($categorias as $categoria)
+        echo "<a href=/proyectos/tpe/categorias/$categoria>$categoria</a>"
+
+    ?>
+
+</section>

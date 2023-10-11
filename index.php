@@ -1,18 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <?php
-    echo "Hola mundo";
-    ?>
-</body>
-
-</html>
-
 <?php
+require(__DIR__ . '/config.php');
+require(__DIR__ . '/router.php');
+
+
+
+
+//Para incluir las clases de forma automática
+function mi_autocargador($clase)
+{
+    require __DIR__ . '/classes/' . $clase . '.php';
+}
+
+spl_autoload_register('mi_autocargador');
+
+// $juego = new Juego();
+
+
+
+//Conectar a la BD
+$db = new mysqli('localhost', 'root', '', 'test');
+
+// var_dump($db);
+
+// include './includes/templates/footer.php';

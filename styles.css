@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: rgba(26, 24, 24, 0.971);
+}
+
+.button {
+    padding: 0.10rem;
+    width: 6.3rem;
+    height: 2.2rem;
+    background-color: #212121;
+    border: 0.08em solid #fff;
+    border-radius: 0.3em;
+    font-size: 12px;
+}
+
+.button span {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0.4em;
+    width: 6rem;
+    height: 2rem;
+    background-color: #212121;
+    border-radius: 0.2em;
+    font-size: 1.5em;
+    color: #fff;
+    border: 0.08em solid #fff;
+    box-shadow: 0 0.4em 0.1em 0.019em #fff;
+}
+
+.button span:hover {
+    transition: all 0.5s;
+    transform: translate(0, 0.4em);
+    box-shadow: 0 0 0 0 #fff;
+}
+
+.button span:not(hover) {
+    transition: all 1s;
+}
+
+/* Navbar */
+
+.navbar {
+    /* position: absolute; */
+    width: 100%;
+    display: flex;
+    padding: 0.7rem;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(26, 24, 24);
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.nameUser {
+    color: rgba(34, 255, 0, 0.466);
+    animation: userName 0.5s infinite;
+    transition: all 0.5s;
+}
+
+@keyframes userNname {
+    0% {
+        color: rgb(85, 255, 0);
+    }
+
+    50% {
+        color: rgb(255, 0, 0);
+    }
+
+    100% {
+        color: rgba(255, 0, 0, 0.466);
+    }
+}
+
+.banner {
+    width: 100%;
+    filter: brightness(50%);
+}
+
+
+/* Login */
+
+
+.loginSect {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 0 20px; */
+}
+
+.loginImage {
+    height: 100%;
+    width: 50%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.form {
+    margin: 0 auto;
+    padding: 2rem 0;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    max-height: 400px;
+    border-radius: 20px;
+    box-shadow: 4px 4px black;
+}
+
+.form input {
+    background-color: rgb(187, 184, 184);
+    color: rgb(0, 0, 0);
+    border-radius: 40px;
+    border: 1px solid rgb(238, 233, 233);
+    box-shadow: 4px 4px black;
+    padding: 10px;
+}
