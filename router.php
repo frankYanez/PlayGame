@@ -2,6 +2,7 @@
 require __DIR__ . '/controller/JuegoController.php';
 require __DIR__ . '/controller/LoginController.php';
 
+
 // define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
 // En el head html:   <base href="'.BASE_URL.'">
@@ -30,6 +31,8 @@ switch ($route) {
         break;
     case 'login':
         $controller = new LoginController();
+
+
         $controller->showLogin();
         break;
     case 'auth':
@@ -51,6 +54,21 @@ switch ($route) {
     case 'logout':
         $controller = new LoginController();
         $controller->logout();
+
+        break;
+
+    case 'admin':
+        $controller = new LoginController();
+        $controller->showAdminWindow();
+        break;
+    case 'createForm':
+        $controller = new JuegoController();
+        $controller->showCreateForm();
+        break;
+    case 'create':
+        $controller = new JuegoController();
+        $controller->createJuego();
+        break;
     default:
         include './includes/templates/404.php';
         break;

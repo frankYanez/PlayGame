@@ -20,8 +20,23 @@ class LoginModel
 
         if ($userFound) {
             session_start();
-            $_SESSION['email'] = $userFound->email;
+
+            $_SESSION['name'] = $userFound->email;
+
+            $_SESSION['rol'] = $userFound->id_rol;
             header("Location: /proyectos/tpe/");
+        }
+
+        return $userFound->id_rol;
+    }
+
+    public function isAdmin()
+    {
+        session_start();
+        if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
+            return true;
+        } else {
+            return false;
         }
     }
 }

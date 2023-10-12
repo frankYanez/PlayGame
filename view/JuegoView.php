@@ -13,4 +13,9 @@ class JuegoView
     {
         require __DIR__ . '../../includes/templates/categorias.phtml';
     }
+
+    public function showCreateForm()
+    {
+        require __DIR__ . '../../includes/templates/createForm.phtml';
+    }
 }

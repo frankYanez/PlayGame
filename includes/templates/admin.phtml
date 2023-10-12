@@ -1,0 +1,27 @@
+<?php
+require __DIR__ . '../../templates/header.phtml';
+?>
+
+
+<button><a href="/proyectos/tpe/createForm">Nuevo</a></button>
+<section>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>genero</th>
+        </tr>
+
+        <?php
+        foreach ($juegos as $juego) {
+            echo "
+           <tr>
+                <td>$juego->id</td>
+               <td>$juego->nombre</td>
+                <td>$juego->genero</td>
+             
+           </tr>
+       ";
+        } ?>
+    </table>
+</section>

@@ -15,14 +15,32 @@ class LoginController
 
     public function showLogin()
     {
-        $this->view->showLogin();
+        if (isset($_SESSION['email'])) {
+            header("Location: /proyectos/tpe/");
+        } else {
+
+            $this->view->showLogin();
+        }
     }
 
     public function auth()
     {
         $user = $_POST['email'];
+        echo $user;
         $pass = $_POST['password'];
+        echo $pass;
         $this->model->auth($user, $pass);
+    }
+
+    public function showAdminWindow()
+    {
+        $juegoModel = new JuegoModel();
+        $juegos = $juegoModel->getJuegos();
+        if ($this->model->isAdmin()) {
+            $this->view->showAdminWindow($juegos);
+        } else {
+            header("Location: /proyectos/tpe/");
+        }
     }
 
     public function logout()

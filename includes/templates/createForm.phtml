@@ -1,0 +1,19 @@
+<?php
+include './includes/templates/header.phtml';
+?>
+
+
+<form action="/proyectos/tpe/create" method="post">
+    <label for="nombreJuego">Nombre</label>
+    <input name="nombreJuego" type="text">
+    <select value="accion">
+        <option name="accion" id="">Accion</option>
+        <option name="aventura" id="">Aventura</option>
+        <option name="estrategia" id="">Estrategia</option>
+
+    </select>
+    <label for="año">Año</label>
+    <input name="año" type="text">
+
+    <button>Crear</button>
+</form>

@@ -1,4 +1,11 @@
-<?php include __DIR__ . '../../templates/header.phtml' ?>
+<?php include __DIR__ . '../../templates/header.phtml';
+
+if (isset($_SESSION['email'])) {
+    echo "<h1>Admin view</h1>";
+}
+?>
+
+
 
 <section class="loginSect">
 

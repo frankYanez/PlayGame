@@ -30,4 +30,16 @@ class JuegoModel
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
+
+    public function createJuego($nombre, $genero, $año)
+    {
+        if (empty($nombre) || empty($genero) || empty($año)) {
+            header("Location: " . BASE_URL . "createForm");
+        } else {
+
+            $query = $this->db->prepare("INSERT INTO juego(nombre, genero, año) VALUES('$nombre', '$genero', '$año')");
+            $query->execute();
+            header("Location: " . BASE_URL . "admin");
+        }
+    }
 }

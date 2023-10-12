@@ -32,4 +32,16 @@ class JuegoController
         $juegos = $this->model->getGamesByCategory($categoria);
         $this->view->showGames($juegos);
     }
+
+    public function createJuego()
+    {
+        echo $_POST['nombreJuego'];
+
+        $this->model->createJuego($_POST['nombreJuego'], $_POST['genero'], $_POST['año']);
+    }
+
+    public function showCreateForm()
+    {
+        $this->view->showCreateForm();
+    }
 }
