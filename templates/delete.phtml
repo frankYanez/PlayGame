@@ -1,0 +1,7 @@
+<?php require __DIR__ . '../../templates/header.phtml'; ?>
+
+<h1>Estas seguro que desea eliminar el juego <?= $nombre ?></h1>
+
+<form action="/proyectos/tpe/deleteJuego/?id=<?= $id ?>" method="post">
+    <input type="submit" value="Eliminar">
+</form>

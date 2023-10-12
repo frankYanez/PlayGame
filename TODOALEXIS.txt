@@ -12,6 +12,9 @@ Validaciones:
 
 -Login URL: Si existe una session iniciada no puede acceder al LOGIN //
 
+
+
+
 TODO FRANK
 
 -Terminar CRUD juegos

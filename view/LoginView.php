@@ -4,12 +4,12 @@ class LoginView
 {
     public function showLogin()
     {
-        require __DIR__ . '../../includes/templates/login.phtml';
+        require __DIR__ . '../../templates/login.phtml';
     }
 
     public function showAdminWindow($juegos)
     {
 
-        require __DIR__ . '../../includes/templates/admin.phtml';
+        require __DIR__ . '../../templates/admin.phtml';
     }
 }

@@ -21,9 +21,11 @@ $partes = explode('/', $url);
 
 $route = $partes[0];
 
+$params = explode('/', $url);
+
 switch ($route) {
     case '':
-        include './includes/templates/home.phtml';
+        include './templates/home.phtml';
         break;
     case 'juegos':
         $controller = new JuegoController();
@@ -41,7 +43,7 @@ switch ($route) {
         break;
     case 'categorias':
         $controller = new JuegoController();
-        $params = explode('/', $url);
+
 
         if (isset($params[1])) {
             $controller->showGamesByCategory(strtolower($params[1]));
@@ -69,7 +71,15 @@ switch ($route) {
         $controller = new JuegoController();
         $controller->createJuego();
         break;
+    case 'deleteJuego':
+        $controller = new JuegoController();
+        $controller->deleteJuego($_GET['id']);
+        break;
+    case 'deleteJuegoConfirm':
+        $controller = new JuegoController();
+        $controller->deleteJuegoAsk($params[1]);
+        break;
     default:
-        include './includes/templates/404.php';
+        include './templates/404.phtml';
         break;
 }

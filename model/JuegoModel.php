@@ -9,6 +9,13 @@ class JuegoModel
         $this->db = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', '');
     }
 
+    public function getJuego($id)
+    {
+        $query = $this->db->prepare("Select * from juego where id = '$id' ");
+        $query->execute();
+        return $query->fetch(PDO::FETCH_OBJ);
+    }
+
     public function getJuegos()
     {
         $query = $this->db->prepare('SELECT * FROM juego');
@@ -33,15 +40,21 @@ class JuegoModel
 
     public function createJuego($nombre, $genero, $año)
     {
-
         //HASTA ACA QUEDE Y NO FUNCIONABA
         if (empty($nombre) || empty($genero) || empty($año)) {
             header("Location: " . BASE_URL . "createForm");
         } else {
 
-            $query = $this->db->prepare("INSERT INTO juego(nombre, genero, año) VALUES('$nombre', '$genero', '$año')");
+            $query = $this->db->prepare("INSERT INTO juego(nombre, genero, desarrollador_id, año_lanzamiento) VALUES('$nombre', '$genero', 100, '$año')");
             $query->execute();
             header("Location: " . BASE_URL . "admin");
         }
+    }
+
+    public function deleteJuego($id)
+    {
+        $query = $this->db->prepare("DELETE FROM juego WHERE id = '$id'");
+        $query->execute();
+        header("Location: " . BASE_URL . "admin");
     }
 }

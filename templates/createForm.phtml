@@ -1,12 +1,12 @@
 <?php
-include './includes/templates/header.phtml';
+include './templates/header.phtml';
 ?>
 
 
 <form action="/proyectos/tpe/create" method="post">
     <label for="nombreJuego">Nombre</label>
     <input name="nombreJuego" type="text">
-    <select value="accion">
+    <select id="select" name="genero">
         <option name="accion" id="">Accion</option>
         <option name="aventura" id="">Aventura</option>
         <option name="estrategia" id="">Estrategia</option>

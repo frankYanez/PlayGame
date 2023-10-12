@@ -35,9 +35,20 @@ class JuegoController
 
     public function createJuego()
     {
-        echo $_POST['nombreJuego'];
 
         $this->model->createJuego($_POST['nombreJuego'], $_POST['genero'], $_POST['año']);
+    }
+
+    public function deleteJuegoAsk($id)
+    {
+        echo $id;
+        $juego = $this->model->getJuego($id);
+        $this->view->showDelete($juego->nombre, $id);
+    }
+
+    public function deleteJuego($id)
+    {
+        $this->model->deleteJuego($id);
     }
 
     //TODO CRUD JUEGO

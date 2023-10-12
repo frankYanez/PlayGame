@@ -6,17 +6,22 @@ class JuegoView
     public function showGames($juegos)
     {
 
-        require __DIR__ . '../../includes/templates/games.phtml';
+        require __DIR__ . '../../templates/games.phtml';
     }
 
     public function showCategorias($categorias)
     {
-        require __DIR__ . '../../includes/templates/categorias.phtml';
+        require __DIR__ . '../../templates/categorias.phtml';
     }
 
     public function showCreateForm()
     {
 
-        require __DIR__ . '../../includes/templates/createForm.phtml';
+        require __DIR__ . '../../templates/createForm.phtml';
+    }
+
+    public function showDelete($nombre, $id)
+    {
+        require __DIR__ . '../../templates/delete.phtml';
     }
 }
