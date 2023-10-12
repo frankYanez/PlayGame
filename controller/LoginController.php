@@ -25,10 +25,10 @@ class LoginController
 
     public function auth()
     {
+        //HASEHAR PASSWORD
         $user = $_POST['email'];
-        echo $user;
         $pass = $_POST['password'];
-        echo $pass;
+
         $this->model->auth($user, $pass);
     }
 

@@ -40,6 +40,8 @@ class JuegoController
         $this->model->createJuego($_POST['nombreJuego'], $_POST['genero'], $_POST['año']);
     }
 
+    //TODO CRUD JUEGO
+
     public function showCreateForm()
     {
         $this->view->showCreateForm();

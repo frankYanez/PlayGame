@@ -33,6 +33,8 @@ class JuegoModel
 
     public function createJuego($nombre, $genero, $año)
     {
+
+        //HASTA ACA QUEDE Y NO FUNCIONABA
         if (empty($nombre) || empty($genero) || empty($año)) {
             header("Location: " . BASE_URL . "createForm");
         } else {

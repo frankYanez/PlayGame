@@ -11,7 +11,9 @@ class LoginModel
 
     public function auth($user, $pass)
     {
-        $query = "SELECT * FROM user WHERE email = '$user' ";
+
+        //Validacion ALEXIS
+        $query = "SELECT * FROM user WHERE email = '$user'  ";
         $stm = $this->db->prepare($query);
         // $stm->bindParam(":username", $user);
         $stm->execute();

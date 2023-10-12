@@ -16,6 +16,7 @@ class JuegoView
 
     public function showCreateForm()
     {
+
         require __DIR__ . '../../includes/templates/createForm.phtml';
     }
 }
