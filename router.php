@@ -9,7 +9,7 @@ define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'
 
 
 
- //   login ->        LoginController->showLogin // Me muestra la pagina del login // si la sesion esta iniciada, me deberia llevar a otro lugar -o home o show error: "la sesion ya esta iniciada"
+ //   login ->        LoginController->showLogin // Me muestra la pagina del login  // si la sesion esta iniciada, me deberia llevar a otro lugar -o home o show error: "la sesion ya esta iniciada"
  //   auth ->         LoginController->auth  //toma los datos del formulario y autentica
 
 

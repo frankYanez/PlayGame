@@ -12,7 +12,7 @@ class LoginModel
     //ME TRAE EL USUARIO
     public function getUser($user){
 
-        $query = $this->db->prepare ("SELECT * FROM usuario WHERE user=?  limit1");
+        $query = $this->db->prepare ("SELECT * FROM usuario WHERE user=?  limit 1");
         $query -> execute(array($user));
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -48,7 +48,7 @@ class LoginModel
     public function isAdmin()
     {
         session_start();
-        if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
+        if (isset($_SESSION['user']) /*&& $_SESSION['rol'] == 1*/) {
             return true;
         } else {
             return false;

@@ -31,7 +31,7 @@ class JuegoController
 
     //ELIMINO DESARROLLADOR
 
-    public function borrarDesarrollador($id){
+    public function borrarDesarrollador($id){ //O BORRAR POR NOMBRE POR NOMBRE
         $this->model->borrarDesarrollador($id);
         header("Location: " . BASE_URL);
 
