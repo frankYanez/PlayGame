@@ -64,6 +64,10 @@ switch ($route) {
         $controller = new JuegoController();
         $controller->createJuego();
         break;
+    case 'createDesarrollador':
+        $controller = new JuegoController();
+        $controller->createDesarrollador();
+        break;
     case 'deleteJuego':
         $controller = new JuegoController();
         $controller->deleteJuego($_GET['id']);
@@ -72,9 +76,10 @@ switch ($route) {
         $controller = new JuegoController();
         $controller->deleteJuegoAsk($params[1]);
         break;
-    case 'pass':
-        include './templates\pass.php';
+    /*case 'crearDesarrollador':
+        templates\createFormDesarrollador.phtml
         break;
+        */
     default:
         include './templates/404.phtml';
         break;

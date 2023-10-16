@@ -38,7 +38,33 @@ class JuegoController
 
     }
 
+    //CREO DESARROLLADOR
+
+   /* public function createDesarrollador()
+    {
+        $this->model->createDesarrollador($_POST['nombreDesarrollador'], $_POST['sedeDesarrrollador'], $_POST['fundacionDesarrrollador'],$_POST['propietarioDesarrrollador']);
+
+    }*/
+
+    public function createDesarrollador()
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $nombre = $_POST['nombreDesarrollador'];
+        $sede = $_POST['sedeDesarrollador'];
+        $añoFundacion = $_POST['fundacionDesarrollador'];
+        $propietario = $_POST['propietarioDesarrollador'];
+
+        $this->model->createDesarrollador($nombre, $sede, $añoFundacion, $propietario);
+    } else {
+        echo("NO SE PUEDE AGREGAR");
+        // Manejar la situación si alguien intenta acceder directamente a createDesarrollador sin enviar datos.
+        // Puedes redirigir a otra página o mostrar un mensaje de error.
+    }
+}
+
     //OBTENGO CATEGORIAS
+
+    //OBTENGO LAS CATEGORIAS
 
     public function showCategoria()
     {

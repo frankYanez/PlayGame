@@ -20,10 +20,10 @@ class JuegoModel
 
     //INSERTO DESARROLLADOR EN LA BD
 
-    public function insertarDesarrollador($nombre,$sede,$año_funadacion,$propietario ){ //EL ID DE LA BASE DE DATOS DE DESARROLLADOR DEBERIA SER AUTOINCREMENTAL
+    public function createDesarrollador($nombre, $sede, $añoFundacion, $propietario ){ //EL ID DE LA BASE DE DATOS DE DESARROLLADOR DEBERIA SER AUTOINCREMENTAL
 
         $query = $this->db->prepare("INSERT INTO desarrollador(nombre, sede,año_fundacion,propietario) VALUES(?,?,?,?)");
-        $query->execute(array($nombre,$sede,$año_funadacion,$propietario));
+        $query->execute(array($nombre, $sede, $añoFundacion, $propietario));
     }
 
     //BORRO A UN DESARROLLADOR
@@ -32,6 +32,7 @@ class JuegoModel
         $query = $this->db->prepare("DELETE FROM desarrollador WHERE id=?");
         $query->execute(array($id));
     }
+
 
     //OBTENGO JUEGO DE LA BASE DE DATOS POR ID
 
@@ -51,14 +52,14 @@ class JuegoModel
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
-    //OBTENGO GENERO
+    //OBTENGO GENEROS QUE NO SE REPITAN
 
-    
+
     public function getCategoria()
     {
-        $query = $this->db->prepare("SELECT DISTINCT genero FROM juego");
+        $query = $this->db->prepare("SELECT DISTINCT genero FROM juego");//SELECCIONA VALORES UNICOS
         $query->execute();
-        return $query->fetchAll(PDO::FETCH_COLUMN, 0);
+        return $query->fetchAll(PDO::FETCH_COLUMN, 0);//ME DEVUELVE DE LA COLUMNA 0, AL ESTAR LOS GENEROS, ME DEVUELVE LOS MISMOS
     }
 
     // ES LA MISMA FUNCION QUE LA DE ARRIBA, VER EL TEMA DE REUTILIZACION
