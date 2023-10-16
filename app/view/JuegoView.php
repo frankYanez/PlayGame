@@ -15,9 +15,15 @@ class JuegoView
         require './templates/categorias.phtml';
     }
 
-    public function showDesarrolladores($desarrolladores)
+    public function showDesarrolladores($desarrolladores,$mensaje='')
     {
         require './templates/desarrolladores.phtml';
+    }
+
+    public function showFormularioDesarrolladores()
+    {
+        require './templates/createFormDesarrollador.phtml';
+
     }
 
     public function showCreateForm()

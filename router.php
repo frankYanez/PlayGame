@@ -76,10 +76,9 @@ switch ($route) {
         $controller = new JuegoController();
         $controller->deleteJuegoAsk($params[1]);
         break;
-    /*case 'crearDesarrollador':
-        templates\createFormDesarrollador.phtml
+    case 'creoDesarrollador':
+        include './templates/createFormDesarrollador.phtml';
         break;
-        */
     default:
         include './templates/404.phtml';
         break;

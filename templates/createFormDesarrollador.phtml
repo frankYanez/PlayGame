@@ -1,11 +1,8 @@
 <?php
-//include './templates/header.phtml';
-
+//MOSTRAR SI HAY SESSION
 ?>
 
-
-
-<form action="create" method="post">
+<form class="form" action="createDesarrollador" method="post">
     <label for="nombreDesarrrollador">Nombre</label>
     <input name="nombreDesarrollador" type="text">
     <label for="sedeDesarrrollador">Sede</label>
@@ -14,5 +11,9 @@
     <input name="fundacionDesarrollador" type="text">
     <label for="propietarioDesarrrollador">Propietario</label>
     <input name="propietarioDesarrollador" type="text">
-    <button>Crear</button>
+    <button class="button">
+            <span>
+                Agregar
+            </span>
+        </button>
 </form>

@@ -24,7 +24,12 @@ class JuegoModel
 
         $query = $this->db->prepare("INSERT INTO desarrollador(nombre, sede,año_fundacion,propietario) VALUES(?,?,?,?)");
         $query->execute(array($nombre, $sede, $añoFundacion, $propietario));
+        //header("Location: " . BASE_URL . "desarrolladores");
+
+        
+        //Tirar mensaje de que se agrego el usuario a la base de datos
     }
+
 
     //BORRO A UN DESARROLLADOR
 
