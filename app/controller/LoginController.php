@@ -1,7 +1,7 @@
 <?php
 require './app/model/LoginModel.php';
 require './app/view/LoginView.php';
-//require './app/model/JuegoModel.php';
+require_once './app/helper/LoginHelper.php';
 
 // define('Inicio', '//' . $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -40,8 +40,7 @@ class LoginController
         $dbUser = $this->model->getUser($user); //me traigo el usuario de la bd que se llame como $user
         if ($dbUser != null){ //verifico primer que el usuario
             if (password_verify($pass,$dbUser[0]["password"])){ //
-                session_start();
-                $_SESSION["User"] = $user;
+                LoginHelper::login($dbUser);
                 header("Location: " . BASE_URL);
             }
             else {//La contaseña es incorrecta
