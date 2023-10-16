@@ -16,9 +16,9 @@ class JuegoController
     
     //OBTENER LOS DESARROLLADORES DE LA BASE DE DATOS (FALTA LLEVARLO A LA VISTA)
 
-    public function getDesarrolladores(){
+    public function showDesarrolladores(){
         $desarrolladores = $this->model->getDesarrolladores();
-        $this->view->visualizarDesarrolladores($desarrolladores);//LE PASO A LA VISTA LOS DESARROLLADORES
+        $this->view->showDesarrolladores($desarrolladores);//LE PASO A LA VISTA LOS DESARROLLADORES
     }
 
     //INSERTO DESARROLLADOR
@@ -43,8 +43,8 @@ class JuegoController
     public function showCategoria()
     {
         
-        $pelis = $this->model->getCategoria($categoria = null);
-        $this->view->showCategorias($pelis);//IDENTIFICAR ESTA VARIABLE (PELIS?)
+        $categorias = $this->model->getCategoria();
+        $this->view->showCategorias($categorias);//LE PASO A LA VISTA LOS DESARROLLADORES
     }
 
     //OBTENGO JUEGOS POR CATEGORIA

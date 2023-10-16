@@ -1,39 +1,9 @@
 <?php
 include './templates/header.phtml';
-
-//EN LUGAR DE UN ARREGLO, TIENE QUE LLAMAR A LA BASE DE DATOS Y CREAR LAS CATEGORIAS
-
-$categorias = array("Aventura", "Estrategia", "Deportes", "Acción", "Rol", "Otros");
 ?>
 
-
-
-<section class="categoriasSect">
-    <h2>Categorias</h2>
-
-    <?php foreach ($categorias as $categoria)
-    //RECORRE LAS CATEGORIAS Y LA VA IMPRIMIENDO.
-    //DEBERIA RECORRER LA BBDD/GENEROS LLAMAR A LA VISTA Y SEA ELLA QUIEN LO IMPRIMA
-        echo "<a href=/proyectos/tpe/categorias/$categoria>$categoria</a>"
-
-    ?>
-
-</section>
-
-<section>
-    <h2>Otras categorias</h2>
-    <?php
-    $categorias2 = getCategoria();
-    var_dump($categorias2)
-
-    ?>
-    <?php foreach ($categorias2 as $categoria2)
-    //RECORRE LAS CATEGORIAS Y LA VA IMPRIMIENDO.
-    //DEBERIA RECORRER LA BBDD/GENEROS LLAMAR A LA VISTA Y SEA ELLA QUIEN LO IMPRIMA
-        echo "<a href=/proyectos/tpe/categorias/$categoria2>$categoria2</a>"
- 
-    ?>
-
-    
-
-</section>
+<ul>
+    <?php foreach ($categorias as $categoria) : ?>
+        <li><?= $categoria ?></li>
+    <?php endforeach ?>
+</ul>

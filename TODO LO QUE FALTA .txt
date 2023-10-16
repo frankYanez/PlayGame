@@ -20,3 +20,10 @@ FALTA:
 TODO FRANK
 
 -Terminar CRUD juegos
+
+
+
+--COMENTARIOS
+
+    - Se va a tener que hacer algunas modificaciones a la base de datos:
+        - Cambiar el campo "year" por "int", debido a que el rango de valores permitidos va desde el año 1901 al año 2155, en el caso de ninento que es 1889, no me permite poner el anio

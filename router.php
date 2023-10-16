@@ -44,6 +44,10 @@ switch ($route) {
             $controller->showCategoria();
         }
         break;
+    case 'desarrolladores':
+        $controller = new JuegoController();
+        $controller->showDesarrolladores();
+        break;
     case 'logout':
         $controller = new LoginController();
         $controller->logout();

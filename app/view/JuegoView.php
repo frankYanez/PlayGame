@@ -15,6 +15,11 @@ class JuegoView
         require './templates/categorias.phtml';
     }
 
+    public function showDesarrolladores($desarrolladores)
+    {
+        require './templates/desarrolladores.phtml';
+    }
+
     public function showCreateForm()
     {
 

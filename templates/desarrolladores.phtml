@@ -1,0 +1,8 @@
+<?php
+include './templates/header.phtml';?>
+
+<ul>
+    <?php foreach ($desarrolladores as $desarrollador) : ?>
+        <li><?= $desarrollador->nombre ?></li>
+    <?php endforeach ?>
+</ul>

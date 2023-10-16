@@ -12,10 +12,10 @@ class JuegoModel
     //OBTENGO LOS DESARROLLADORES
 
     public function getDesarrolladores(){
-        $query = $this->db->prepare("select * from desarrollador");
-        $query = execute();
-        $desarrollador = $query->fetchALL(PDO::FETCH_OBJ);
-        return $desarrollador;
+        $query = $this->db->prepare('SELECT * FROM desarrollador');
+        $query->execute();
+        $desarrolladores = $query->fetchALL(PDO::FETCH_OBJ);
+        return $desarrolladores;
     }
 
     //INSERTO DESARROLLADOR EN LA BD
@@ -53,12 +53,12 @@ class JuegoModel
 
     //OBTENGO GENERO
 
-    public function getCategoria($categoria)
+    
+    public function getCategoria()
     {
-
-        $query = $this->db->prepare("SELECT *  FROM juego WHERE genero = '$categoria'");
+        $query = $this->db->prepare("SELECT DISTINCT genero FROM juego");
         $query->execute();
-        return $query->fetchAll(PDO::FETCH_OBJ);
+        return $query->fetchAll(PDO::FETCH_COLUMN, 0);
     }
 
     // ES LA MISMA FUNCION QUE LA DE ARRIBA, VER EL TEMA DE REUTILIZACION
