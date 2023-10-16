@@ -51,6 +51,13 @@ class JuegoModel
         }
     }
 
+    public function updateJuego($id, $nombre, $genero, $año)
+    {
+        $query = $this->db->prepare("UPDATE juego SET nombre = '$nombre', genero = '$genero', año_lanzamiento = '$año' WHERE id = '$id'");
+        $query->execute();
+        header("Location: " . BASE_URL . "admin");
+    }
+
     public function deleteJuego($id)
     {
         $query = $this->db->prepare("DELETE FROM juego WHERE id = '$id'");

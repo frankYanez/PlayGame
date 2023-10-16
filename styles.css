@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Outfit', sans-serif;
+    /* font-family: 'Outfit', sans-serif; */
 }
 
 body {
@@ -132,4 +132,28 @@ body {
     border: 1px solid rgb(238, 233, 233);
     box-shadow: 4px 4px black;
     padding: 10px;
+}
+
+/* TABLE */
+.table {
+    background-color: red;
+}
+
+/* CATEGORY */
+.categorias-section {
+    background-color: red;
+}
+
+/* DETAIL */
+
+.detail-container {
+    width: 100%;
+    display: flex;
+}
+
+.detail-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: red;
 }

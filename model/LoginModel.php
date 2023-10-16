@@ -22,14 +22,11 @@ class LoginModel
 
         if ($userFound) {
             session_start();
-
-            $_SESSION['name'] = $userFound->email;
-
             $_SESSION['rol'] = $userFound->id_rol;
-            header("Location: /proyectos/tpe/");
+            return $_SESSION['name'] = $userFound->email;
         }
 
-        return $userFound->id_rol;
+        return null;
     }
 
     public function isAdmin()

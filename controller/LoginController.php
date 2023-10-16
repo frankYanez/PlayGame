@@ -15,10 +15,9 @@ class LoginController
 
     public function showLogin()
     {
-        if (isset($_SESSION['email'])) {
+        if (isset($_SESSION['name'])) {
             header("Location: /proyectos/tpe/");
         } else {
-
             $this->view->showLogin();
         }
     }
@@ -29,7 +28,8 @@ class LoginController
         $user = $_POST['email'];
         $pass = $_POST['password'];
 
-        $this->model->auth($user, $pass);
+        $session = $this->model->auth($user, $pass);
+        $this->view->showHeaderSession($session);
     }
 
     public function showAdminWindow()

@@ -31,6 +31,10 @@ switch ($route) {
         $controller = new JuegoController();
         $controller->showJuegos();
         break;
+    case 'juego':
+        $controller = new JuegoController();
+        $controller->showJuego($_GET['id']);
+        break;
     case 'login':
         $controller = new LoginController();
 
@@ -70,6 +74,15 @@ switch ($route) {
     case 'create':
         $controller = new JuegoController();
         $controller->createJuego();
+        break;
+
+    case 'updateForm':
+        $controller = new JuegoController();
+        $controller->updateJuegoAsk($params[1]);
+        break;
+    case 'updateGame':
+        $controller = new JuegoController();
+        $controller->updateJuego($params[1]);
         break;
     case 'deleteJuego':
         $controller = new JuegoController();

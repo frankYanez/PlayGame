@@ -39,9 +39,20 @@ class JuegoController
         $this->model->createJuego($_POST['nombreJuego'], $_POST['genero'], $_POST['año']);
     }
 
+    public function updateJuegoAsk($id)
+    {
+        $juego = $this->model->getJuego($id);
+        $this->view->showUpdateForm($juego);
+    }
+
+    public function updateJuego($id)
+    {
+
+        $this->model->updateJuego($id, $_POST['nombre'], $_POST['genero'], $_POST['año']);
+    }
+
     public function deleteJuegoAsk($id)
     {
-        echo $id;
         $juego = $this->model->getJuego($id);
         $this->view->showDelete($juego->nombre, $id);
     }
@@ -49,6 +60,12 @@ class JuegoController
     public function deleteJuego($id)
     {
         $this->model->deleteJuego($id);
+    }
+
+    public function showJuego($id)
+    {
+        $juego = $this->model->getJuego($id);
+        $this->view->showJuegoById($juego);
     }
 
     //TODO CRUD JUEGO

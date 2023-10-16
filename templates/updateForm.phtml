@@ -1,0 +1,16 @@
+<?php include __DIR__ . '../../templates/header.phtml'; ?>
+
+<form action="/proyectos/tpe/updateGame/<?= $juego->id ?>" method="post">
+    <label for="nombre">Nombre</label>
+    <input name="nombre" type="text">
+    <select id="select" name="genero">
+        <option name="accion" id="">Accion</option>
+        <option name="aventura" id="">Aventura</option>
+        <option name="estrategia" id="">Estrategia</option>
+
+    </select>
+    <label for="año">Año</label>
+    <input value="<?= $juego->año_lanzamiento ?>" name="año" type="text">
+
+    <button>Editar</button>
+</form>

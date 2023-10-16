@@ -24,4 +24,14 @@ class JuegoView
     {
         require __DIR__ . '../../templates/delete.phtml';
     }
+
+    public function showJuegoById($juego)
+    {
+        require __DIR__ . '../../templates/game.phtml';
+    }
+
+    public function showUpdateForm($juego)
+    {
+        require __DIR__ . '../../templates/updateForm.phtml';
+    }
 }
