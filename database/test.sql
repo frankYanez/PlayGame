@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-10-2023 a las 03:17:17
+-- Tiempo de generación: 16-10-2023 a las 21:09:32
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -30,9 +30,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `desarrollador` (
   `id` int(11) NOT NULL,
   `nombre` varchar(40) NOT NULL,
-  `sede` varchar(40) NOT NULL,
-  `año_fundacion` year(4) NOT NULL,
-  `propietario` varchar(40) NOT NULL
+  `sede` varchar(100) NOT NULL,
+  `año_fundacion` int(4) NOT NULL,
+  `propietario` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -40,9 +40,12 @@ CREATE TABLE `desarrollador` (
 --
 
 INSERT INTO `desarrollador` (`id`, `nombre`, `sede`, `año_fundacion`, `propietario`) VALUES
-(1, 'Blizzard Entertainment', 'Irvine California', '1994', 'Activision Blizzard'),
-(2, 'Ubisoft Entertainment S. A.', 'Armand Carrel Francia', '1986', 'Familia Guillemot'),
-(3, 'Gameloft SE', 'Paris Francia', '1999', 'Vivendi');
+(1, 'Blizzard Entertainment', 'Irvine, California, EEUU', 1994, 'Activision Blizzard'),
+(2, 'Ubisoft Entertainment S. A.', 'Montreuil-Sous-Bois, Francia', 1986, 'Familia Guillemot'),
+(3, 'Gameloft SE', 'Paris, Francia', 1999, 'Vivendi'),
+(4, 'Tencent Games', 'Shenzhen, Guangdong, China', 2003, 'Tencent'),
+(5, 'Riot Games Inc', 'Los Ángeles, California, EEUU', 2006, 'Tencent Holdings'),
+(6, 'Nintendo Co., Ltd.', 'Kioto, Japón', 1889, 'Capital Group Companies, Autocartera y Banco de Kioto\r\n');
 
 -- --------------------------------------------------------
 
@@ -53,7 +56,7 @@ INSERT INTO `desarrollador` (`id`, `nombre`, `sede`, `año_fundacion`, `propieta
 CREATE TABLE `juego` (
   `id` int(11) NOT NULL,
   `nombre` varchar(40) NOT NULL,
-  `genero` varchar(11) NOT NULL,
+  `genero` varchar(25) NOT NULL,
   `desarrollador_id` int(11) NOT NULL,
   `año_lanzamiento` year(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
@@ -64,7 +67,26 @@ CREATE TABLE `juego` (
 
 INSERT INTO `juego` (`id`, `nombre`, `genero`, `desarrollador_id`, `año_lanzamiento`) VALUES
 (1, 'Starcraft', 'Estrategia', 1, '1998'),
-(2, 'Assassin\'s Creed', 'Aventura', 2, '2007');
+(2, 'Assassin\'s Creed', 'Aventura', 2, '2007'),
+(3, 'Tony Hawk\'s Pro Skater 1 + 2', 'Simulacion', 1, '2020'),
+(4, 'Call of Duty: WWII', 'Disparos', 1, '2017'),
+(5, 'Crash Bandicoot 4: It\'s About Time', 'Pelea', 1, '2021'),
+(6, 'Spyro Reignited Trilogy', 'Aventura', 1, '2018'),
+(7, 'Super Mario Maker 2', 'Desplazamiento Lateral', 6, '2019'),
+(8, 'Super Mario Bros. Wonder', 'Accion', 6, '2023'),
+(9, 'The Legend of Zelda: Tears of the Kingdo', 'Accion', 6, '2023'),
+(10, 'Pokémon Escarlata', 'Rol', 6, '2022'),
+(11, 'League of Legends	', 'Moba', 5, '2009'),
+(12, 'Teamfight Tactics	', 'AutoBattler', 5, '2019'),
+(13, 'Legends of Runeterra	', 'Cartas', 5, '2020'),
+(14, 'Moonlight Blade', 'MMORPG', 4, '2007'),
+(15, 'Iron Knight', 'MMORPG', 4, '2007'),
+(16, 'QQ Flying Car', 'Casual', 4, '2011'),
+(17, 'PUBG MOBILE', 'Battle Royale', 4, '2018'),
+(18, 'Far Cry 5', 'Disparos', 2, '2018'),
+(19, 'Anno 1880', 'Estrategia', 2, '2019'),
+(20, 'Rayman', 'Desplazamiento Lateral', 2, '1995'),
+(21, 'The Crew 2', 'Mundo Abierto', 2, '2018');
 
 -- --------------------------------------------------------
 
@@ -117,13 +139,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `desarrollador`
 --
 ALTER TABLE `desarrollador`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `juego`
 --
 ALTER TABLE `juego`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
