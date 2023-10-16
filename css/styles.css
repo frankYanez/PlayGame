@@ -133,3 +133,9 @@ body {
     box-shadow: 4px 4px black;
     padding: 10px;
 }
+
+/* 404 */
+
+.passwrong{
+    color: red;
+}

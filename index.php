@@ -1,5 +1,8 @@
 <?php
-require(__DIR__ . '/config.php');
+
+//ESTO SIRVE??
+
+require(__DIR__ . '/config.php'); //esta ruta no existe
 require(__DIR__ . '/router.php');
 
 

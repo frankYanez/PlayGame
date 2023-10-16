@@ -1,5 +1,5 @@
 <?php
-
+//ESTO SIRVE?
 function conectarDB()
 {
 

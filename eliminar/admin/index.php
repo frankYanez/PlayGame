@@ -2,6 +2,9 @@
 require '../config/database.php';
 
 //Conectar a la BD
+
+//REVISAR BIEN SI SIRVE VERDADERAMENTE.
+//SI FUNCION, CAMBIARLO DE LUGAR A DONDE CORRESPONDE
 conectarDB();
 ?>
 
