@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-09-2023 a las 17:14:56
+-- Tiempo de generación: 16-10-2023 a las 03:17:17
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -35,6 +35,15 @@ CREATE TABLE `desarrollador` (
   `propietario` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Volcado de datos para la tabla `desarrollador`
+--
+
+INSERT INTO `desarrollador` (`id`, `nombre`, `sede`, `año_fundacion`, `propietario`) VALUES
+(1, 'Blizzard Entertainment', 'Irvine California', '1994', 'Activision Blizzard'),
+(2, 'Ubisoft Entertainment S. A.', 'Armand Carrel Francia', '1986', 'Familia Guillemot'),
+(3, 'Gameloft SE', 'Paris Francia', '1999', 'Vivendi');
+
 -- --------------------------------------------------------
 
 --
@@ -44,10 +53,38 @@ CREATE TABLE `desarrollador` (
 CREATE TABLE `juego` (
   `id` int(11) NOT NULL,
   `nombre` varchar(40) NOT NULL,
-  `genero` varchar(40) NOT NULL,
+  `genero` varchar(11) NOT NULL,
   `desarrollador_id` int(11) NOT NULL,
   `año_lanzamiento` year(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Volcado de datos para la tabla `juego`
+--
+
+INSERT INTO `juego` (`id`, `nombre`, `genero`, `desarrollador_id`, `año_lanzamiento`) VALUES
+(1, 'Starcraft', 'Estrategia', 1, '1998'),
+(2, 'Assassin\'s Creed', 'Aventura', 2, '2007');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `Id` int(11) NOT NULL,
+  `user` varchar(55) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `id_rol` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`Id`, `user`, `password`, `id_rol`) VALUES
+(1, 'webadmin', '$2y$10$TIt9L4qxMWH0UgHiIiFabOkKyBbZCyxD6d1FZOxZPCXWRicIy4iJO', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -67,6 +104,12 @@ ALTER TABLE `juego`
   ADD KEY `desarrollador_id` (`desarrollador_id`);
 
 --
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -74,13 +117,19 @@ ALTER TABLE `juego`
 -- AUTO_INCREMENT de la tabla `desarrollador`
 --
 ALTER TABLE `desarrollador`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `juego`
 --
 ALTER TABLE `juego`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas

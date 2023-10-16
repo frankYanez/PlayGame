@@ -1,0 +1,22 @@
+
+
+-Hashear contraseña. y Desencriptar al traerla de la BBDD. TERMINADO
+
+-Login: validar que el usuario exista y si hay error un parrafo que diga USUARIO O CONTRASEÑA NO ENCPNTRADO// LOGIN CONTROLLER TERMINADO
+
+FALTA:
+
+-Hacer CRUD categorias.
+
+-Poder agregar categorias.
+
+-Header: mirar el tema del echo para imprimir el boton ADMIN y LOGOUT //HEADER PHTML -FALTA
+
+-Login URL: Si existe una session iniciada no puede acceder al LOGIN // -FALTA
+
+- Ruteo: comentar a donde lleva cada ruta
+
+
+TODO FRANK
+
+-Terminar CRUD juegos
