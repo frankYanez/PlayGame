@@ -32,8 +32,6 @@ class JuegoController
   
         }
     }
-
-
     public function createDesarrollador()
     {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -56,18 +54,13 @@ class JuegoController
         // Puedes redirigir a otra página o mostrar un mensaje de error.
     }
     }
+    
     //ELIMINO DESARROLLADOR
 
     public function borrarDesarrollador($id){ //O BORRAR POR NOMBRE POR NOMBRE
         $this->model->borrarDesarrollador($id);
         header("Location: " . BASE_URL);
     }
-
-    //CREO DESARROLLADOR
-
-
-    //OBTENGO CATEGORIAS
-
     //OBTENGO LAS CATEGORIAS
 
     public function showCategoria()

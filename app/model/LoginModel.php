@@ -48,7 +48,7 @@ class LoginModel
     public function isAdmin()
     {
         session_start();
-        if (isset($_SESSION['user']) /*&& $_SESSION['rol'] == 1*/) {
+        if (isset($_SESSION['USER_ID']) /*&& $_SESSION['rol'] == 1*/) {
             return true;
         } else {
             return false;

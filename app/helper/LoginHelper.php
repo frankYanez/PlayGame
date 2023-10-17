@@ -9,7 +9,6 @@ class LoginHelper {
 
     public static function login($user) {
         LoginHelper::init();
-        $_SESSION['USER_ID'] = $user->id;
         $_SESSION['USER_USER'] = $user->user; 
     }
 
@@ -20,7 +19,7 @@ class LoginHelper {
 
     public static function verify() {
         LoginHelper::init();
-        if (!isset($_SESSION['USER_ID'])) {
+        if (!isset($_SESSION['USER_USER'])) {
             header('Location: ' . BASE_URL . '/login');
             die();
         }

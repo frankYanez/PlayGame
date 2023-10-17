@@ -17,20 +17,10 @@ class LoginController
         $this->view = new LoginView();
     }
 
-
-
-    
     public function showLogin()
-    {/*
-        if (isset($_SESSION['email'])) {
-            header("../../templates/header.phtml");
-        } else 
-*/
-            $this->view->showLogin();
-        
+    {   
+        $this->view->showLogin();
     }
-    //
-    
 
     public function auth()
     {

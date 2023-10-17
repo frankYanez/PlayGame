@@ -1,13 +1,12 @@
 <?php
 require __DIR__ . '/app/controller/JuegoController.php';
 require __DIR__ . '/app/controller/LoginController.php';
+require_once './app/helper/LoginHelper.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
 
  //FALTA COMENTAR A DONDE VA CADA RUTEO
-
-
 
  //   login ->        LoginController->showLogin // Me muestra la pagina del login  // si la sesion esta iniciada, me deberia llevar a otro lugar -o home o show error: "la sesion ya esta iniciada"
  //   auth ->         LoginController->auth  //toma los datos del formulario y autentica
@@ -30,6 +29,8 @@ switch ($route) {
     case 'login':
         $controller = new LoginController();
         $controller->showLogin();
+        break;
+        
         break;
     case 'auth':
         $controller = new LoginController();
