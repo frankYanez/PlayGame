@@ -13,8 +13,8 @@
     <title>PlayGame</title>
 </head>
 
-<? // session_start(); 
-?>
+<? session_start();?>
+
 
 <body>
     <header class="header">
@@ -32,7 +32,7 @@
             <?php if (isset($_SESSION['USER_ID'])) {
                 echo '<a href="logout">Logout</a>';
 
-                echo '<h2 class="nameUser">' . $_SESSION['name'] . '</h2>';
+                echo '<h2 class="nameUser">' . $_SESSION['USER_NAME'] . '</h2>';
             } else {
                 echo '<a href="login">Login</a>';
             } ?>

@@ -9,7 +9,9 @@ class LoginHelper {
 
     public static function login($user) {
         LoginHelper::init();
-        $_SESSION['USER_USER'] = $user->user; 
+        $_SESSION['USER_ID'] = $user->id; 
+        $_SESSION['USER_NAME'] = $user->user;
+
     }
 
     public static function logout() {

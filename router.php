@@ -32,6 +32,19 @@ switch ($route) {
         $controller->showJuego($_GET['id']);
         break;
 
+    case 'updateGame':
+        $controller = new JuegoController();
+        $controller->updateJuego($params[1]);
+        break;
+    case 'deleteJuego':
+         $controller = new JuegoController();
+        $controller->deleteJuego($_GET['id']);
+        break;
+     case 'deleteJuegoConfirm':
+        $controller = new JuegoController();
+        $controller->deleteJuegoAsk($params[1]);
+        break;
+
     case 'login':
         $controller = new LoginController();
         $controller->showLogin();
@@ -53,21 +66,15 @@ switch ($route) {
         break;
     case 'categorias':
         $controller = new JuegoController();
-        if (isset($params[1])) {
-        $controller->showGamesByCategory(strtolower($params[1]));
-        } else {
-        $controller = new JuegoController();
         $controller->showCategoria();
-        }
+    
         break;
         
     case 'buscarPorCategoria':
         $categoriaSeleccionada = $_POST['categoria'];
         $controller = new JuegoController();
         $controller->showGamesByCategory($categoriaSeleccionada);
-        //var_dump();
         break;
-
 
     case 'desarrolladores':
         $controller = new JuegoController();
@@ -101,19 +108,6 @@ switch ($route) {
         $controller = new JuegoController();
         $controller->updateJuegoAsk($params[1]);
         break;
-    case 'updateGame':
-        $controller = new JuegoController();
-        $controller->updateJuego($params[1]);
-        break;
-    case 'deleteJuego':
-        $controller = new JuegoController();
-        $controller->deleteJuego($_GET['id']);
-        break;
-    case 'deleteJuegoConfirm':
-        $controller = new JuegoController();
-        $controller->deleteJuegoAsk($params[1]);
-        break;
-
     default:
         include './templates/404.phtml';
         break;

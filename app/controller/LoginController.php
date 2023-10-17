@@ -10,11 +10,13 @@ class LoginController
 {
     private $model;
     private $view;
+    private $login;
 
     public function __construct()
     {
         $this->model = new LoginModel();
         $this->view = new LoginView();
+        $this->login = new LoginHelper();
     }
 
     public function showLogin()
@@ -28,7 +30,6 @@ class LoginController
         $user = $_POST['user'];
         $pass = $_POST['password'];
         $dbUser = $this->model->getUser($user); //me traigo el usuario de la bd que se llame como $user
-        var_dump($dbUser[0]["password"]);
         if ($dbUser != null) { //verifico primer que el usuario
             if (password_verify($pass, $dbUser[0]["password"])) { //
                 LoginHelper::login($dbUser);

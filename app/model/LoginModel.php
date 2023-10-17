@@ -13,15 +13,12 @@ class LoginModel
     public function getUser($user)
     {
 
-        $query = $this->db->prepare("SELECT * FROM user WHERE email=?  limit 1");
+        $query = $this->db->prepare("SELECT * FROM usuario WHERE user=?  limit 1");
         $query->execute(array($user));
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
-
-
-
-    public function auth($user, $pass)
+    /*public function auth($user, $pass)
     {
 
         //Validacion ALEXIS
@@ -45,7 +42,7 @@ class LoginModel
 
         return $userFound->id_rol;
     }
-
+*/
     public function isAdmin()
     {
         session_start();
