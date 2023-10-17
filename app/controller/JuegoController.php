@@ -53,10 +53,9 @@ class JuegoController
     
     //ELIMINO DESARROLLADOR
 
-    public function borrarDesarrollador($id)
+    public function deleteDesarrollador($id)
     { //O BORRAR POR NOMBRE POR NOMBRE
         $this->model->borrarDesarrollador($id);
-        header("Location: " . BASE_URL);
     }
     //OBTENGO LAS CATEGORIAS
 
@@ -127,7 +126,6 @@ class JuegoController
     public function updateJuego($id)
     {
         $this->model->updateJuego($id, $_POST['nombre'], $_POST['genero'], $_POST['año']);
-
 
     }
 

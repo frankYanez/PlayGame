@@ -28,7 +28,11 @@ include './templates/header.phtml';
                 <td><?= $desarrollador->año_fundacion ?></td>
                 <td><?= $desarrollador->propietario ?></td>
                 <td><button>Editar</button></td>
-                <td><button>Eliminar</button></td>
+                <td><form action="deleteDesarrollador" method="post">
+                    <input type="hidden" name="desarrolladorId" value="<?= $desarrollador->id ?>">
+                    <button type="submit">Borrar</button>
+                    </form>
+                </td> 
 
 
             </tr>

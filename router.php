@@ -27,9 +27,11 @@ switch ($route) {
         $controller->showJuegos();
         break;
     case 'juego':
+        $juegoId = $_GET['id'];
         $controller = new JuegoController();
         $controller->showJuego($_GET['id']);
         break;
+
     case 'login':
         $controller = new LoginController();
         $controller->showLogin();
@@ -40,13 +42,22 @@ switch ($route) {
         $controller = new LoginController();
         $controller->auth();
         break;
+
+    case 'logout':
+        $controller = new LoginController();
+        $controller->logout();
+        break;
+    case 'admin':
+        $controller = new LoginController();
+        $controller->showAdminWindow();
+        break;
     case 'categorias':
         $controller = new JuegoController();
         if (isset($params[1])) {
-            $controller->showGamesByCategory(strtolower($params[1]));
+        $controller->showGamesByCategory(strtolower($params[1]));
         } else {
-            $controller = new JuegoController();
-            $controller->showCategoria();
+        $controller = new JuegoController();
+        $controller->showCategoria();
         }
         break;
         
@@ -62,14 +73,21 @@ switch ($route) {
         $controller = new JuegoController();
         $controller->showDesarrolladores();
         break;
-    case 'logout':
-        $controller = new LoginController();
-        $controller->logout();
+    case 'createDesarrollador':
+        $controller = new JuegoController();
+        $controller->createDesarrollador();
         break;
-    case 'admin':
-        $controller = new LoginController();
-        $controller->showAdminWindow();
+    case 'creoDesarrollador':
+        include './templates/createFormDesarrollador.phtml';
         break;
+
+    case 'deleteDesarrollador':
+            $desarrolladorId = $_POST['desarrolladorId'];
+            $controller = new JuegoController();
+            $controller->deleteDesarrollador($desarrolladorId);
+            $controller->showDesarrolladores();
+            break;
+
     case 'createForm':
         $controller = new JuegoController();
         $controller->showCreateForm();
@@ -77,10 +95,6 @@ switch ($route) {
     case 'create':
         $controller = new JuegoController();
         $controller->createJuego();
-        break;
-    case 'createDesarrollador':
-        $controller = new JuegoController();
-        $controller->createDesarrollador();
         break;
 
     case 'updateForm':
@@ -99,14 +113,7 @@ switch ($route) {
         $controller = new JuegoController();
         $controller->deleteJuegoAsk($params[1]);
         break;
-    case 'juego':
-        $juegoId = $_GET['id'];
-        $controller = new JuegoController();
-        $controller->showJuego($juegoId);
-        break;
-    case 'creoDesarrollador':
-        include './templates/createFormDesarrollador.phtml';
-        break;
+
     default:
         include './templates/404.phtml';
         break;
