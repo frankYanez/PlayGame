@@ -49,6 +49,15 @@ switch ($route) {
             $controller->showCategoria();
         }
         break;
+        
+    case 'buscarPorCategoria':
+        $categoriaSeleccionada = $_POST['categoria'];
+        $controller = new JuegoController();
+        $controller->showGamesByCategory($categoriaSeleccionada);
+        //var_dump();
+        break;
+
+
     case 'desarrolladores':
         $controller = new JuegoController();
         $controller->showDesarrolladores();

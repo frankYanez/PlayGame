@@ -78,7 +78,6 @@ class JuegoController
 
     public function showGamesByCategory($categoria)
     {
-
         $juegos = $this->model->getGamesByCategory($categoria);
         $this->view->showGames($juegos);
     }
