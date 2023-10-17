@@ -40,7 +40,7 @@ class JuegoController
 
             if ($nombre && $sede && $añoFundacion && $propietario != null) {
                 $this->model->createDesarrollador($nombre, $sede, $añoFundacion, $propietario);
-                $this->showDesarrolladores("El desarrollador ha sido agregado"); //NO TOMA PARAMETRO
+                $this->showDesarrolladores($mensaje ="El desarrollador ha sido agregado"); //NO TOMA PARAMETRO
             } else {
                 $this->showDesarrolladores("El desarrollador no ha sido agregado"); //NO TOMA PARAMETRO
             }

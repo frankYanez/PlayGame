@@ -46,12 +46,6 @@ class JuegoModel
         $query->execute();
         return $query->fetch(PDO::FETCH_OBJ);
     }
-    public function getJuegoByCat($categoria)
-    {
-        $query = $this->db->prepare("Select * from juego where categoria = '$categoria' ");
-        $query->execute();
-        return $query->fetch(PDO::FETCH_OBJ);
-    }
 
     //OBTENG JUEGO SIN FILTRO
 

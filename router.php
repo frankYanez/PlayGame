@@ -100,8 +100,9 @@ switch ($route) {
         $controller->deleteJuegoAsk($params[1]);
         break;
     case 'juego':
+        $juegoId = $_GET['id'];
         $controller = new JuegoController();
-        $controller->showJuego($_GET['id']);
+        $controller->showJuego($juegoId);
         break;
     case 'creoDesarrollador':
         include './templates/createFormDesarrollador.phtml';
