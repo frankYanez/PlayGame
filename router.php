@@ -94,7 +94,6 @@ switch ($route) {
 
     case 'updateDesarrollador':
         $dId= $_POST['desarrolladorId'];
-        var_dump($dId) ;
         $dNombre= $_POST['nombreDesarrrollador'];
         $dSede= $_POST['sedeDesarrrollador'];
         $dAño= $_POST['fundacionDesarrrollador'];
