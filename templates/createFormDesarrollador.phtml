@@ -2,7 +2,8 @@
 //MOSTRAR SI HAY SESSION
 ?>
 
-<form class="form" action="createDesarrollador" method="post">
+<form class="formDesarrollador" action="createDesarrollador" method="post">
+    
     <label for="nombreDesarrrollador">Nombre</label>
     <input name="nombreDesarrollador" type="text">
     <label for="sedeDesarrrollador">Sede</label>
@@ -11,9 +12,7 @@
     <input name="fundacionDesarrollador" type="text">
     <label for="propietarioDesarrrollador">Propietario</label>
     <input name="propietarioDesarrollador" type="text">
-    <button class="button">
-            <span>
-                Agregar
-            </span>
-        </button>
+    <button class="button"><span>Agregar</span></button>
+    <p class=passwrong><?php echo $mensaje='';//NO ME TOMA EL COLOR ROJO (VIENE DEL) ?></p>
+
 </form>

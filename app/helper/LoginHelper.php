@@ -1,6 +1,7 @@
 <?php
 
 class LoginHelper {
+
     public static function init() {
         if (session_status() != PHP_SESSION_ACTIVE) {
             session_start();
@@ -9,7 +10,8 @@ class LoginHelper {
 
     public static function login($user) {
         LoginHelper::init();
-        $_SESSION['USER_USER'] = $user->user; 
+        $_SESSION['USER_ID'] = $user[0]['id'];
+        $_SESSION['USER_NAME'] = $user[0]['user'];
     }
 
     public static function logout() {
@@ -19,16 +21,9 @@ class LoginHelper {
 
     public static function verify() {
         LoginHelper::init();
-        if (!isset($_SESSION['USER_USER'])) {
+        if (!isset($_SESSION['USER_ID'])) {
             header('Location: ' . BASE_URL . '/login');
             die();
         }
     }
-
-
-
-
-
-
-
 }

@@ -1,9 +1,16 @@
 <?php
 include './templates/header.phtml';
 ?>
-
-<ul>
+    </form>
+    <p>Por favor, seleccione una categoria:</p>
+    <br>
+    <form action="buscarPorCategoria" method="post">
+    <select  id="select" name="categoria"><?php //TRAER LOS GENEROS RECORRIENDO UN ARREGLO QUE LO TRAIGA DE LA BD ?>
     <?php foreach ($categorias as $categoria) : ?>
-        <li><?= $categoria ?></li>
+        <option value=<?=$categoria ?> id=""><?= $categoria ?></option>
     <?php endforeach ?>
-</ul>
+    </select>
+    <button type="submit">Buscar por categoria</button>
+
+    </form>
+

@@ -13,8 +13,11 @@
     <title>PlayGame</title>
 </head>
 
-<? php // session_start(); 
-?>
+<?php 
+if (session_status() != PHP_SESSION_ACTIVE) {
+    session_start(); //ver de llevarlo al controller
+}?>
+
 
 <body>
     <header class="header">
@@ -24,15 +27,10 @@
             <a href="categorias">Categorias</a>
             <a href="desarrolladores">Desarrolladores</a>
             <a href="juegos">Juegos</a>
-
-            <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
-                echo '<a href="admin">Admin</a>';
-            } ?>
-
             <?php if (isset($_SESSION['USER_ID'])) {
                 echo '<a href="logout">Logout</a>';
 
-                echo '<h2 class="nameUser">' . $_SESSION['name'] . '</h2>';
+                echo '<h2 class="nameUser">' . $_SESSION['USER_NAME'] . '</h2>';
             } else {
                 echo '<a href="login">Login</a>';
             } ?>

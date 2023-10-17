@@ -15,14 +15,18 @@ class JuegoView
         require './templates/categorias.phtml';
     }
 
-    public function showDesarrolladores($desarrolladores, $mensaje = '')
+    public function showDesarrolladores($desarrolladores)
     {
         require './templates/desarrolladores.phtml';
     }
-
     public function showFormularioDesarrolladores()
     {
         require './templates/createFormDesarrollador.phtml';
+    }
+
+    public function showUpdateFormDesarrollador($desarrollador){
+        require './templates/updateFormDesarrollador.phtml';
+
     }
 
     public function showCreateForm()
@@ -30,6 +34,12 @@ class JuegoView
 
         require './templates/createForm.phtml';
     }
+
+    public function showError($error){
+        require './templates/error.phtml';
+
+    }
+
 
     public function showDelete($nombre, $id)
     {
