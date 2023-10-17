@@ -94,10 +94,10 @@ switch ($route) {
 
     case 'updateDesarrollador':
         $dId= $_POST['desarrolladorId'];
-        $dNombre= $_POST['nombreDesarrrollador'];
-        $dSede= $_POST['sedeDesarrrollador'];
-        $dAño= $_POST['fundacionDesarrrollador'];
-        $dProp= $_POST['propietarioDesarrrollador'];
+        $dNombre= $_POST['nombreDesarrollador'];
+        $dSede= $_POST['sedeDesarrollador'];
+        $dAño= $_POST['fundacionDesarrollador'];
+        $dProp= $_POST['propietarioDesarrollador'];
         $controller = new JuegoController();
         $controller->updateDesarrollador($dId,$dNombre,$dSede,$dAño,$dProp);//CREAR ESTA FUNCION
         break;

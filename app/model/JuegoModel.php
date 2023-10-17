@@ -38,9 +38,14 @@ class JuegoModel
     }
 
     //EDITO UN DESARROLLADOR
-    public function updateDesarrollador($id,$nombre,$sede,$año_fundacion,$propietario)
+    public function updateDesarrollador($id, $nombre, $sede, $año_fundacion, $propietario)
     {
-        $query = $this->db->prepare("UPDATE desarrollador SET id='$id', nombre= '$nombre', sede='$sede',año_fundacion='$año_fundacion',propietario='$propietario') WHERE id='$id'");
+        $query = $this->db->prepare("UPDATE desarrollador SET nombre = ?, sede = ?, año_fundacion = ?, propietario = ? WHERE id = ?");
+        $query->bindParam(1, $nombre);
+        $query->bindParam(2, $sede);
+        $query->bindParam(3, $año_fundacion);
+        $query->bindParam(4, $propietario);
+        $query->bindParam(5, $id);
         $query->execute();
     }
 
