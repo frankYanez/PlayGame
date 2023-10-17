@@ -1,0 +1,37 @@
+<?php 
+include __DIR__ . '../../templates/header.phtml';?>
+
+<table>
+    <thead>
+        <tr>
+            <th>Numero</th>
+            <th>Nombre</th>
+            <th>Sede</th>
+            <th>Año de Fundación</th>
+            <th>Propietario</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><?= $desarrollador[0]->id ?></td>
+            <td><?= $desarrollador[0]->nombre?></td>
+            <td><?= $desarrollador[0]->sede ?></td>
+            <td><?= $desarrollador[0]->año_fundacion ?></td>
+            <td><?= $desarrollador[0]->propietario ?></td>
+        </tr>
+    </tbody>
+
+</table>
+
+<form class="formDesarrollador" action="updateDesarrollador" method="post">
+<input type="hidden" name="desarrolladorId" value="<?= $desarrollador[0]->id ?>">
+    <label for="nombreDesarrrollador">Nombre</label>
+    <input name="nombreDesarrollador" type="text">
+    <label for="sedeDesarrrollador">Sede</label>
+    <input name="sedeDesarrollador" type="text">
+    <label for="fundacionDesarrrollador">Año de Fundacion</label>
+    <input name="fundacionDesarrollador" type="text">
+    <label for="propietarioDesarrrollador">Propietario</label>
+    <input name="propietarioDesarrollador" type="text">
+    <button class="button"><span>Editar</span></button>
+</form>

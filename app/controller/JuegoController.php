@@ -18,20 +18,22 @@ class JuegoController
 
     //OBTIENE LOS DESARROLLADORES DE LA BASE DE DATOS
 
-    public function showDesarrolladores($mensaje = '')
+    public function showDesarrolladores()
     {
         LoginHelper::init();
         $desarrolladores = $this->model->getDesarrolladores();
         if (isset($_SESSION['USER_ID'])&& isset($_SESSION['USER_NAME'])) //HAY UNA SESION ABIERTA
         {
-            $this->view->showDesarrolladores($desarrolladores, $mensaje); //LE PASO A LA VISTA LOS DESARROLLADORES
+            $this->view->showDesarrolladores($desarrolladores); //LE PASO A LA VISTA LOS DESARROLLADORES
             $this->view->showFormularioDesarrolladores();
         } else {
 
-            $this->view->showDesarrolladores($desarrolladores, $mensaje); //LE PASO A LA VISTA LOS DESARROLLADORES
+            $this->view->showDesarrolladores($desarrolladores); //LE PASO A LA VISTA LOS DESARROLLADORES
 
         }
     }
+
+    //CREO UN DESARROLLADOR AL PRESIONAR EN EL BOTON "AGREGAR" DEL FORMULARIO
     public function createDesarrollador()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -42,16 +44,38 @@ class JuegoController
 
             if ($nombre && $sede && $añoFundacion && $propietario != null) {
                 $this->model->createDesarrollador($nombre, $sede, $añoFundacion, $propietario);
-                $this->showDesarrolladores($mensaje ="El desarrollador ha sido agregado"); //NO TOMA PARAMETRO
+                $this->showDesarrolladores(); //NO TOMA PARAMETRO
+                // $this->view->showError("Desarrollador agregado");
             } else {
-                $this->showDesarrolladores("El desarrollador no ha sido agregado"); //NO TOMA PARAMETRO
+                $this->showDesarrolladores(); //NO TOMA PARAMETRO
+                $this->view->showError("No se puede agregar desarrollador, completar todos los campos");
+
             }
         } else {
-            $this->showDesarrolladores("El desarrollador no se puede agregar"); //NO TOMA PARAMETRO
+            $this->showDesarrolladores(); //NO TOMA PARAMETRO
             // Manejar la situación si alguien intenta acceder directamente a createDesarrollador sin enviar datos.
             // Puedes redirigir a otra página o mostrar un mensaje de error.
         }
     }
+
+    //OBTENGO DESARROLLADOR
+   
+    public function getDesarrollador($id)
+    {
+        $desarrollador = $this->model->getDesarrollador($id);
+        $this->view->showUpdateFormDesarrollador($desarrollador);
+
+    }
+
+    public function updateDesarrollador($dId,$dNombre,$dSede,$dAño,$dProp)
+    {
+        
+        $this->model->updateDesarrollador($dId,$dNombre,$dSede,$dAño,$dProp);
+        $this->showDesarrolladores();
+
+    }
+
+
     
     //ELIMINO DESARROLLADOR
 
@@ -60,12 +84,11 @@ class JuegoController
         $this->model->borrarDesarrollador($id);
     }
     //OBTENGO LAS CATEGORIAS
-
     public function showCategoria()
     {
 
         $categorias = $this->model->getCategoria();
-        $this->view->showCategorias($categorias); //LE PASO A LA VISTA LOS DESARROLLADORES
+        $this->view->showCategorias($categorias); //LE PASO A LA VISTA LAS CATEGORIAS
     }
 
     public function getCategorias()

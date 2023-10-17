@@ -1,5 +1,6 @@
 <?php
 include './templates/header.phtml';
+
 //include './templates/createFormDesarrollador.phtml';
 /*  Con esto elimino      <a href="eliminar/<?= $desarrollador->id ?>" type="button" class='btn btn-danger ml-auto'>Borrar</a>    
 */
@@ -27,25 +28,28 @@ include './templates/header.phtml';
                 <td><?= $desarrollador->sede ?></td>
                 <td><?= $desarrollador->año_fundacion ?></td>
                 <td><?= $desarrollador->propietario ?></td>
-                <td><button>Editar</button></td>
-                <td><form action="deleteDesarrollador" method="post">
-                    <input type="hidden" name="desarrolladorId" value="<?= $desarrollador->id ?>">
-                    <button type="submit">Borrar</button>
+                <?php if (isset($_SESSION['USER_ID']) && isset($_SESSION['USER_NAME'])) : ?>
+                <td>
+                    <form action="editarDesarrollador" method="post">
+                        <input type="hidden" name="desarrolladorId" value="<?= $desarrollador->id ?>">
+                        <button type="submit">Editar</button>
                     </form>
+                </td>
+                <td>
+                    <form action="deleteDesarrollador" method="post">
+                        <input type="hidden" name="desarrolladorId" value="<?= $desarrollador->id ?>">
+                        <button type="submit">Borrar</button>
+                    </form>
+                    <?php endif; ?>
                 </td> 
 
 
             </tr>
-            <tr>
-            </tr>
-
-
         <?php endforeach ?>
 
     </tbody>
 
 </table>
-<p class=passwrong><?php echo $mensaje='';//NO ME TOMA EL COLOR ROJO (VIENE DEL) ?></p>
 
 
 <br>

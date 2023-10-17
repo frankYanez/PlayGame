@@ -84,6 +84,25 @@ switch ($route) {
         $controller = new JuegoController();
         $controller->createDesarrollador();
         break;
+        
+    case 'editarDesarrollador':
+        $dId= $_POST['desarrolladorId']; 
+        $controller = new JuegoController();
+        $controller->getDesarrollador($dId);
+        
+        break;
+
+    case 'updateDesarrollador':
+        $dId= $_POST['desarrolladorId'];
+        var_dump($dId) ;
+        $dNombre= $_POST['nombreDesarrrollador'];
+        $dSede= $_POST['sedeDesarrrollador'];
+        $dAño= $_POST['fundacionDesarrrollador'];
+        $dProp= $_POST['propietarioDesarrrollador'];
+        $controller = new JuegoController();
+        $controller->updateDesarrollador($dId,$dNombre,$dSede,$dAño,$dProp);//CREAR ESTA FUNCION
+        break;
+
     case 'creoDesarrollador':
         include './templates/createFormDesarrollador.phtml';
         break;

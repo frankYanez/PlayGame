@@ -19,6 +19,15 @@ class JuegoModel
         return $desarrolladores;
     }
 
+    
+    public function getDesarrollador($id)
+    {
+        $query = $this->db->prepare("SELECT * FROM desarrollador where id = '$id' ");
+        $query->execute();
+        $desarrollador = $query->fetchALL(PDO::FETCH_OBJ);
+        return $desarrollador;
+    }
+
     //INSERTO DESARROLLADOR EN LA BD
 
     public function createDesarrollador($nombre, $sede, $añoFundacion, $propietario)
@@ -28,6 +37,12 @@ class JuegoModel
         $query->execute(array($nombre, $sede, $añoFundacion, $propietario));
     }
 
+    //EDITO UN DESARROLLADOR
+    public function updateDesarrollador($id,$nombre,$sede,$año_fundacion,$propietario)
+    {
+        $query = $this->db->prepare("UPDATE desarrollador SET id='$id', nombre= '$nombre', sede='$sede',año_fundacion='$año_fundacion',propietario='$propietario') WHERE id='$id'");
+        $query->execute();
+    }
 
     //BORRO A UN DESARROLLADOR
 
@@ -36,7 +51,6 @@ class JuegoModel
         $query = $this->db->prepare("DELETE FROM desarrollador WHERE id=?");
         $query->execute(array($id));
     }
-
 
     //OBTENGO JUEGO DE LA BASE DE DATOS POR ID
 
@@ -99,7 +113,6 @@ class JuegoModel
     }
 
     //ELIMINO UN JUEGO
-
     public function deleteJuego($id)
     {
         $query = $this->db->prepare("DELETE FROM juego WHERE id = '$id'");

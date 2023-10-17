@@ -27,11 +27,6 @@ if (session_status() != PHP_SESSION_ACTIVE) {
             <a href="categorias">Categorias</a>
             <a href="desarrolladores">Desarrolladores</a>
             <a href="juegos">Juegos</a>
-
-            <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
-                echo '<a href="admin">Admin</a>';
-            } ?>
-
             <?php if (isset($_SESSION['USER_ID'])) {
                 echo '<a href="logout">Logout</a>';
 
