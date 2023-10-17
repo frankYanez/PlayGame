@@ -67,6 +67,8 @@ class JuegoController
 
     }
 
+    //EDITO EL DESARROLLADOR
+
     public function updateDesarrollador($dId,$dNombre,$dSede,$dAño,$dProp)
     {
         
@@ -81,8 +83,15 @@ class JuegoController
 
     public function deleteDesarrollador($id)
     { //O BORRAR POR NOMBRE POR NOMBRE
-        $this->model->borrarDesarrollador($id);
+        if ($this->model->juegoenDesarrollador($id)){
+            $this->view->showError("El desarrollador tiene juegos asignados, por favor eliminelos antes de continuar");
+            
+        }
+        else{
+        $this->model->deleteDesarrollador($id);
+        }
     }
+
     //OBTENGO LAS CATEGORIAS
     public function showCategoria()
     {

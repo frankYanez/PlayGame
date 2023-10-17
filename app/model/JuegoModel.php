@@ -19,7 +19,8 @@ class JuegoModel
         return $desarrolladores;
     }
 
-    
+    //OBTENGO UN DESARROLLADOR
+
     public function getDesarrollador($id)
     {
         $query = $this->db->prepare("SELECT * FROM desarrollador where id = '$id' ");
@@ -51,10 +52,20 @@ class JuegoModel
 
     //BORRO A UN DESARROLLADOR
 
-    public function borrarDesarrollador($id)
-    { //VER TEMA DE INCONSISTENCIAS, POR SI BORRO UN DESARROLLADOR QUE TIENE VARIOS JUEGOS.
+    public function deleteDesarrollador($id)
+    { 
         $query = $this->db->prepare("DELETE FROM desarrollador WHERE id=?");
         $query->execute(array($id));
+    }
+
+    //CHEQUEO SI HAY JUEGOS EN DESARROLLADOR
+
+    public function juegoenDesarrollador($id){
+        $query = $this->db->prepare("SELECT COUNT(*) FROM juego WHERE desarrollador_id = ?");
+        $query->execute(array($id));
+        $numJuegosAsociados = $query->fetchColumn();
+        return $numJuegosAsociados > 0;
+
     }
 
     //OBTENGO JUEGO DE LA BASE DE DATOS POR ID
