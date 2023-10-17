@@ -1,18 +1,17 @@
 <?php
 include './templates/header.phtml';
-
+$juegoController = new JuegoController();
+$categorias = $juegoController->getCategorias();
 ?>
-
 
 
 <form action="create" method="post">
     <label for="nombreJuego">Nombre</label>
     <input name="nombreJuego" type="text">
-    <select id="select" name="genero">
-        <option name="accion" id="">Accion</option>
-        <option name="aventura" id="">Aventura</option>
-        <option name="estrategia" id="">Estrategia</option>
-
+    <select id="select" name="genero"><?php //TRAER LOS GENEROS RECORRIENDO UN ARREGLO QUE LO TRAIGA DE LA BD ?>
+    <?php foreach ($categorias as $categoria) : ?>
+        <option name=<?= $categoria ?> id=""><?= $categoria ?></option>
+    <?php endforeach ?>
     </select>
     <label for="año">Año</label>
     <input name="año" type="text">

@@ -67,6 +67,13 @@ class JuegoController
         $this->view->showCategorias($categorias); //LE PASO A LA VISTA LOS DESARROLLADORES
     }
 
+    public function getCategorias()
+    {
+        $categorias = $this->model->getCategoria();
+        return $categorias;
+
+    }
+
     //OBTENGO JUEGOS POR CATEGORIA
 
     public function showGamesByCategory($categoria)
@@ -112,9 +119,6 @@ class JuegoController
         $this->view->showCreateForm();
     }
 
-
-
-
     public function updateJuegoAsk($id)
     {
         $juego = $this->model->getJuego($id);
@@ -123,8 +127,9 @@ class JuegoController
 
     public function updateJuego($id)
     {
-
         $this->model->updateJuego($id, $_POST['nombre'], $_POST['genero'], $_POST['año']);
+
+
     }
 
 
