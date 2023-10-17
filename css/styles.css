@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: 'Outfit', sans-serif; */
+    font-family: 'Outfit', sans-serif;
 }
 
 body {
@@ -134,26 +134,8 @@ body {
     padding: 10px;
 }
 
-/* TABLE */
-.table {
-    background-color: red;
-}
+/* 404 */
 
-/* CATEGORY */
-.categorias-section {
-    background-color: red;
-}
-
-/* DETAIL */
-
-.detail-container {
-    width: 100%;
-    display: flex;
-}
-
-.detail-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: red;
+.passwrong {
+    color: red;
 }

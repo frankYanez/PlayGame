@@ -1,26 +1,22 @@
 <?php
-require __DIR__ . '/controller/JuegoController.php';
-require __DIR__ . '/controller/LoginController.php';
-
-
-// define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
-
-// En el head html:   <base href="'.BASE_URL.'">
-
-
-// SERVER_NAME: Nombre del server (localhost)
-// SERVER_PORT: Nro puerto server (por default no se vé)
-// PHP_SELF: El script que se está ejecutando.
-// dirname(): Nos devuelve el directorio del script que le pasemos por parametro.
+require __DIR__ . '/app/controller/JuegoController.php';
+require __DIR__ . '/app/controller/LoginController.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
+
+//FALTA COMENTAR A DONDE VA CADA RUTEO
+
+
+
+//   login ->        LoginController->showLogin // Me muestra la pagina del login  // si la sesion esta iniciada, me deberia llevar a otro lugar -o home o show error: "la sesion ya esta iniciada"
+//   auth ->         LoginController->auth  //toma los datos del formulario y autentica
+
+
+
 $url = $_GET['action'];
-
 $partes = explode('/', $url);
-
 $route = $partes[0];
-
 $params = explode('/', $url);
 
 switch ($route) {
@@ -37,8 +33,6 @@ switch ($route) {
         break;
     case 'login':
         $controller = new LoginController();
-
-
         $controller->showLogin();
         break;
     case 'auth':
@@ -47,8 +41,6 @@ switch ($route) {
         break;
     case 'categorias':
         $controller = new JuegoController();
-
-
         if (isset($params[1])) {
             $controller->showGamesByCategory(strtolower($params[1]));
         } else {
@@ -56,13 +48,14 @@ switch ($route) {
             $controller->showCategoria();
         }
         break;
-
+    case 'desarrolladores':
+        $controller = new JuegoController();
+        $controller->showDesarrolladores();
+        break;
     case 'logout':
         $controller = new LoginController();
         $controller->logout();
-
         break;
-
     case 'admin':
         $controller = new LoginController();
         $controller->showAdminWindow();
@@ -74,6 +67,10 @@ switch ($route) {
     case 'create':
         $controller = new JuegoController();
         $controller->createJuego();
+        break;
+    case 'createDesarrollador':
+        $controller = new JuegoController();
+        $controller->createDesarrollador();
         break;
 
     case 'updateForm':
@@ -91,6 +88,13 @@ switch ($route) {
     case 'deleteJuegoConfirm':
         $controller = new JuegoController();
         $controller->deleteJuegoAsk($params[1]);
+        break;
+    case 'juego':
+        $controller = new JuegoController();
+        $controller->showJuego($_GET['id']);
+        break;
+    case 'creoDesarrollador':
+        include './templates/createFormDesarrollador.phtml';
         break;
     default:
         include './templates/404.phtml';

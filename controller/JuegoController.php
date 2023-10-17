@@ -1,6 +1,7 @@
 <?php
 require __DIR__ . '/../model/JuegoModel.php';
 require __DIR__ . '/../view/JuegoView.php';
+/*
 class JuegoController
 {
     private $model;
@@ -75,3 +76,4 @@ class JuegoController
         $this->view->showCreateForm();
     }
 }
+*/

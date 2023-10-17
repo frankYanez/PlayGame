@@ -9,11 +9,25 @@ class LoginModel
         $this->db = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', '');
     }
 
+    //ME TRAE EL USUARIO
+    public function getUser($user)
+    {
+
+        $query = $this->db->prepare("SELECT * FROM user WHERE email=?  limit 1");
+        $query->execute(array($user));
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+
+
     public function auth($user, $pass)
     {
 
         //Validacion ALEXIS
-        $query = "SELECT * FROM user WHERE email = '$user'  ";
+
+
+        $query = "SELECT * FROM user WHERE  = '$user'  ";
         $stm = $this->db->prepare($query);
         // $stm->bindParam(":username", $user);
         $stm->execute();
@@ -22,17 +36,20 @@ class LoginModel
 
         if ($userFound) {
             session_start();
+
+            $_SESSION['name'] = $userFound->email;
+
             $_SESSION['rol'] = $userFound->id_rol;
-            return $_SESSION['name'] = $userFound->email;
+            header("Location: " . BASE_URL);
         }
 
-        return null;
+        return $userFound->id_rol;
     }
 
     public function isAdmin()
     {
         session_start();
-        if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
+        if (isset($_SESSION['name']) /*&& $_SESSION['rol'] == 1*/) {
             return true;
         } else {
             return false;

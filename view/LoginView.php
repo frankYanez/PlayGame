@@ -15,6 +15,7 @@ class LoginView
 
     public function showHeaderSession($session)
     {
+
         require __DIR__ . '../../templates/header.phtml';
         require __DIR__ . '../../templates/home.phtml';
     }

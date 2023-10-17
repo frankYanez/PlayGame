@@ -2,6 +2,8 @@
 
 require __DIR__ . '/../model/LoginModel.php';
 require __DIR__ . '/../view/LoginView.php';
+
+/*
 class LoginController
 {
     private $model;
@@ -25,7 +27,7 @@ class LoginController
     public function auth()
     {
         //HASEHAR PASSWORD
-        $user = $_POST['email'];
+        $user = $_POST['user'];
         $pass = $_POST['password'];
 
         $session = $this->model->auth($user, $pass);
