@@ -105,7 +105,7 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`Id`, `user`, `password`, `id_rol`) VALUES
+INSERT INTO `usuario` (`id`, `user`, `password`, `id_rol`) VALUES
 (1, 'webadmin', '$2y$10$TIt9L4qxMWH0UgHiIiFabOkKyBbZCyxD6d1FZOxZPCXWRicIy4iJO', NULL);
 
 --

@@ -1,6 +1,8 @@
 <?php
 require './app/model/JuegoModel.php';
 require './app/view/JuegoView.php';
+require_once './app/helper/LoginHelper.php';
+
 
 
 class JuegoController
@@ -18,15 +20,15 @@ class JuegoController
 
     public function showDesarrolladores($mensaje = '')
     {
+        LoginHelper::init();
         $desarrolladores = $this->model->getDesarrolladores();
-        session_start();
-        if (isset($_SESSION["User"])) //HAY UNA SESION ABIERTA
+        if (isset($_SESSION['USER_ID'])&& isset($_SESSION['USER_NAME'])) //HAY UNA SESION ABIERTA
         {
-            $this->view->showDesarrolladores($desarrolladores, $mensaje = ''); //LE PASO A LA VISTA LOS DESARROLLADORES
+            $this->view->showDesarrolladores($desarrolladores, $mensaje); //LE PASO A LA VISTA LOS DESARROLLADORES
             $this->view->showFormularioDesarrolladores();
         } else {
 
-            $this->view->showDesarrolladores($desarrolladores, $mensaje = ''); //LE PASO A LA VISTA LOS DESARROLLADORES
+            $this->view->showDesarrolladores($desarrolladores, $mensaje); //LE PASO A LA VISTA LOS DESARROLLADORES
 
         }
     }

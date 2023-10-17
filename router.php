@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/app/controller/JuegoController.php';
 require __DIR__ . '/app/controller/LoginController.php';
-require_once './app/helper/LoginHelper.php';
+//require           './app/helper/Login.Helper.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -14,7 +14,7 @@ define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'
 
 
 $url = $_GET['action'];
-$partes = explode('/', $url);
+$partes = explode('/', $url); 
 $route = $partes[0];
 $params = explode('/', $url);
 
@@ -89,11 +89,11 @@ switch ($route) {
         break;
 
     case 'deleteDesarrollador':
-            $desarrolladorId = $_POST['desarrolladorId'];
-            $controller = new JuegoController();
-            $controller->deleteDesarrollador($desarrolladorId);
-            $controller->showDesarrolladores();
-            break;
+        $desarrolladorId = $_POST['desarrolladorId'];
+        $controller = new JuegoController();
+        $controller->deleteDesarrollador($desarrolladorId);
+        $controller->showDesarrolladores();
+        break;
 
     case 'createForm':
         $controller = new JuegoController();
