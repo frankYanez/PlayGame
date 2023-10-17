@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <base href="<?= BASE_URL?>">
+    <base href="<?= BASE_URL ?>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styles.css">
@@ -13,12 +13,13 @@
     <title>PlayGame</title>
 </head>
 
-<?php// session_start(); ?>
+<? php // session_start(); 
+?>
 
 <body>
     <header class="header">
 
-            <nav class="navbar">
+        <nav class="navbar">
             <a href="">Inicio</a>
             <a href="categorias">Categorias</a>
             <a href="desarrolladores">Desarrolladores</a>
@@ -28,7 +29,7 @@
                 echo '<a href="admin">Admin</a>';
             } ?>
 
-            <?php if (isset($_SESSION['name'])) {
+            <?php if (isset($_SESSION['USER_ID'])) {
                 echo '<a href="logout">Logout</a>';
 
                 echo '<h2 class="nameUser">' . $_SESSION['name'] . '</h2>';

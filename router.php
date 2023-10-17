@@ -6,7 +6,7 @@ require_once './app/helper/LoginHelper.php';
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
 
- //FALTA COMENTAR A DONDE VA CADA RUTEO
+//FALTA COMENTAR A DONDE VA CADA RUTEO
 
  //   login ->        LoginController->showLogin // Me muestra la pagina del login  // si la sesion esta iniciada, me deberia llevar a otro lugar -o home o show error: "la sesion ya esta iniciada"
  //   auth ->         LoginController->auth  //toma los datos del formulario y autentica
@@ -25,6 +25,10 @@ switch ($route) {
     case 'juegos':
         $controller = new JuegoController();
         $controller->showJuegos();
+        break;
+    case 'juego':
+        $controller = new JuegoController();
+        $controller->showJuego($_GET['id']);
         break;
     case 'login':
         $controller = new LoginController();
@@ -69,6 +73,15 @@ switch ($route) {
         $controller = new JuegoController();
         $controller->createDesarrollador();
         break;
+
+    case 'updateForm':
+        $controller = new JuegoController();
+        $controller->updateJuegoAsk($params[1]);
+        break;
+    case 'updateGame':
+        $controller = new JuegoController();
+        $controller->updateJuego($params[1]);
+        break;
     case 'deleteJuego':
         $controller = new JuegoController();
         $controller->deleteJuego($_GET['id']);
@@ -76,6 +89,10 @@ switch ($route) {
     case 'deleteJuegoConfirm':
         $controller = new JuegoController();
         $controller->deleteJuegoAsk($params[1]);
+        break;
+    case 'juego':
+        $controller = new JuegoController();
+        $controller->showJuego($_GET['id']);
         break;
     case 'creoDesarrollador':
         include './templates/createFormDesarrollador.phtml';

@@ -13,51 +13,48 @@ class JuegoController
         $this->model = new JuegoModel();
         $this->view = new JuegoView();
     }
-    
+
     //OBTIENE LOS DESARROLLADORES DE LA BASE DE DATOS
 
-    public function showDesarrolladores($mensaje = ''){
+    public function showDesarrolladores($mensaje = '')
+    {
         $desarrolladores = $this->model->getDesarrolladores();
         session_start();
-        if (isset($_SESSION["User"]))//HAY UNA SESION ABIERTA
+        if (isset($_SESSION["User"])) //HAY UNA SESION ABIERTA
         {
-        $this->view->showDesarrolladores($desarrolladores,$mensaje ='');//LE PASO A LA VISTA LOS DESARROLLADORES
-        $this->view->showFormularioDesarrolladores();
+            $this->view->showDesarrolladores($desarrolladores, $mensaje = ''); //LE PASO A LA VISTA LOS DESARROLLADORES
+            $this->view->showFormularioDesarrolladores();
+        } else {
 
-        }
-        else
-        {
+            $this->view->showDesarrolladores($desarrolladores, $mensaje = ''); //LE PASO A LA VISTA LOS DESARROLLADORES
 
-        $this->view->showDesarrolladores($desarrolladores,$mensaje ='');//LE PASO A LA VISTA LOS DESARROLLADORES
-  
         }
     }
     public function createDesarrollador()
     {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $nombre = $_POST['nombreDesarrollador'];
-        $sede = $_POST['sedeDesarrollador'];
-        $añoFundacion = $_POST['fundacionDesarrollador'];
-        $propietario = $_POST['propietarioDesarrollador'];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $nombre = $_POST['nombreDesarrollador'];
+            $sede = $_POST['sedeDesarrollador'];
+            $añoFundacion = $_POST['fundacionDesarrollador'];
+            $propietario = $_POST['propietarioDesarrollador'];
 
-        if ($nombre && $sede && $añoFundacion && $propietario!=null ){
-        $this->model->createDesarrollador($nombre, $sede, $añoFundacion, $propietario);
-        $this->showDesarrolladores("El desarrollador ha sido agregado");//NO TOMA PARAMETRO
-        }  
-        else{
-            $this->showDesarrolladores("El desarrollador no ha sido agregado");//NO TOMA PARAMETRO
+            if ($nombre && $sede && $añoFundacion && $propietario != null) {
+                $this->model->createDesarrollador($nombre, $sede, $añoFundacion, $propietario);
+                $this->showDesarrolladores("El desarrollador ha sido agregado"); //NO TOMA PARAMETRO
+            } else {
+                $this->showDesarrolladores("El desarrollador no ha sido agregado"); //NO TOMA PARAMETRO
+            }
+        } else {
+            $this->showDesarrolladores("El desarrollador no se puede agregar"); //NO TOMA PARAMETRO
+            // Manejar la situación si alguien intenta acceder directamente a createDesarrollador sin enviar datos.
+            // Puedes redirigir a otra página o mostrar un mensaje de error.
         }
-        
-    } else {
-        $this->showDesarrolladores("El desarrollador no se puede agregar");//NO TOMA PARAMETRO
-        // Manejar la situación si alguien intenta acceder directamente a createDesarrollador sin enviar datos.
-        // Puedes redirigir a otra página o mostrar un mensaje de error.
-    }
     }
     
     //ELIMINO DESARROLLADOR
 
-    public function borrarDesarrollador($id){ //O BORRAR POR NOMBRE POR NOMBRE
+    public function borrarDesarrollador($id)
+    { //O BORRAR POR NOMBRE POR NOMBRE
         $this->model->borrarDesarrollador($id);
         header("Location: " . BASE_URL);
     }
@@ -65,22 +62,22 @@ class JuegoController
 
     public function showCategoria()
     {
-        
+
         $categorias = $this->model->getCategoria();
-        $this->view->showCategorias($categorias);//LE PASO A LA VISTA LOS DESARROLLADORES
+        $this->view->showCategorias($categorias); //LE PASO A LA VISTA LOS DESARROLLADORES
     }
 
     //OBTENGO JUEGOS POR CATEGORIA
-    
+
     public function showGamesByCategory($categoria)
     {
-        
+
         $juegos = $this->model->getGamesByCategory($categoria);
         $this->view->showGames($juegos);
     }
 
     //OBTENGO JUEGOS
-    
+
     public function showJuegos()
     {
         $juegos = $this->model->getJuegos();
@@ -88,7 +85,7 @@ class JuegoController
     }
 
     //CREO JUEGO
-        
+
     public function createJuego()
     {
 
@@ -113,5 +110,27 @@ class JuegoController
     public function showCreateForm()
     {
         $this->view->showCreateForm();
+    }
+
+
+
+
+    public function updateJuegoAsk($id)
+    {
+        $juego = $this->model->getJuego($id);
+        $this->view->showUpdateForm($juego);
+    }
+
+    public function updateJuego($id)
+    {
+
+        $this->model->updateJuego($id, $_POST['nombre'], $_POST['genero'], $_POST['año']);
+    }
+
+
+    public function showJuego($id)
+    {
+        $juego = $this->model->getJuego($id);
+        $this->view->showJuegoById($juego);
     }
 }

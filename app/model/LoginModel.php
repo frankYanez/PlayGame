@@ -10,22 +10,23 @@ class LoginModel
     }
 
     //ME TRAE EL USUARIO
-    public function getUser($user){
+    public function getUser($user)
+    {
 
-        $query = $this->db->prepare ("SELECT * FROM usuario WHERE user=?  limit 1");
-        $query -> execute(array($user));
+        $query = $this->db->prepare("SELECT * FROM user WHERE email=?  limit 1");
+        $query->execute(array($user));
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
 
-    /*
+
 
     public function auth($user, $pass)
     {
 
         //Validacion ALEXIS
 
-        
+
         $query = "SELECT * FROM user WHERE  = '$user'  ";
         $stm = $this->db->prepare($query);
         // $stm->bindParam(":username", $user);
@@ -44,7 +45,7 @@ class LoginModel
 
         return $userFound->id_rol;
     }
-*/
+
     public function isAdmin()
     {
         session_start();
