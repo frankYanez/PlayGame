@@ -161,11 +161,11 @@ body {
     box-shadow: 4px 4px black;
 }
 
-/*
-.tablaDesarrolladores{
-    align-items: center;
+.centered-content {
+    display: flex;
     justify-content: center;
-}*/
+    align-items: center;
+}
 
 table {
     border-collapse: collapse;
