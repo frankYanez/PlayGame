@@ -24,9 +24,9 @@ class JuegoView
         require './templates/createFormDesarrollador.phtml';
     }
 
-    public function showUpdateFormDesarrollador($desarrollador){
+    public function showUpdateFormDesarrollador($desarrollador)
+    {
         require './templates/updateFormDesarrollador.phtml';
-
     }
 
     public function showCreateForm()
@@ -35,9 +35,15 @@ class JuegoView
         require './templates/createForm.phtml';
     }
 
-    public function showError($error){
+    public function showError($error)
+    {
         require './templates/error.phtml';
+    }
 
+    public function showAdminWindow($juegos)
+    {
+
+        require './templates/admin.phtml';
     }
 
 

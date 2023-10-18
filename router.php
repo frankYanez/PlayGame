@@ -8,13 +8,13 @@ define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'
 
 //FALTA COMENTAR A DONDE VA CADA RUTEO
 
- //   login ->        LoginController->showLogin // Me muestra la pagina del login  // si la sesion esta iniciada, me deberia llevar a otro lugar -o home o show error: "la sesion ya esta iniciada"
- //   auth ->         LoginController->auth  //toma los datos del formulario y autentica
+//   login ->        LoginController->showLogin // Me muestra la pagina del login  // si la sesion esta iniciada, me deberia llevar a otro lugar -o home o show error: "la sesion ya esta iniciada"
+//   auth ->         LoginController->auth  //toma los datos del formulario y autentica
 
 
 
 $url = $_GET['action'];
-$partes = explode('/', $url); 
+$partes = explode('/', $url);
 $route = $partes[0];
 $params = explode('/', $url);
 
@@ -23,8 +23,16 @@ switch ($route) {
         include './templates/home.phtml';
         break;
     case 'juegos':
+        LoginHelper::init();
         $controller = new JuegoController();
-        $controller->showJuegos();
+        if (!isset($_SESSION['USER_ID'])) {
+            $controller->showJuegos();
+            break;
+        } else {
+            $controller->showJuegosAdmin();
+            break;
+        }
+
         break;
     case 'juego':
         $juegoId = $_GET['id'];
@@ -37,10 +45,10 @@ switch ($route) {
         $controller->updateJuego($params[1]);
         break;
     case 'deleteJuego':
-         $controller = new JuegoController();
+        $controller = new JuegoController();
         $controller->deleteJuego($_GET['id']);
         break;
-     case 'deleteJuegoConfirm':
+    case 'deleteJuegoConfirm':
         $controller = new JuegoController();
         $controller->deleteJuegoAsk($params[1]);
         break;
@@ -49,7 +57,7 @@ switch ($route) {
         $controller = new LoginController();
         $controller->showLogin();
         break;
-        
+
         break;
     case 'auth':
         $controller = new LoginController();
@@ -61,15 +69,15 @@ switch ($route) {
         $controller->logout();
         break;
     case 'admin':
-        $controller = new LoginController();
-        $controller->showAdminWindow();
+        $controller = new JuegoController();
+        $controller->showJuegosAdmin();
         break;
     case 'categorias':
         $controller = new JuegoController();
         $controller->showCategoria();
-    
+
         break;
-        
+
     case 'buscarPorCategoria':
         $categoriaSeleccionada = $_POST['categoria'];
         $controller = new JuegoController();
@@ -84,22 +92,22 @@ switch ($route) {
         $controller = new JuegoController();
         $controller->createDesarrollador();
         break;
-        
+
     case 'editarDesarrollador':
-        $dId= $_POST['desarrolladorId']; 
+        $dId = $_POST['desarrolladorId'];
         $controller = new JuegoController();
         $controller->getDesarrollador($dId);
-        
+
         break;
 
     case 'updateDesarrollador':
-        $dId= $_POST['desarrolladorId'];
-        $dNombre= $_POST['nombreDesarrrollador'];
-        $dSede= $_POST['sedeDesarrrollador'];
-        $dAño= $_POST['fundacionDesarrrollador'];
-        $dProp= $_POST['propietarioDesarrrollador'];
+        $dId = $_POST['desarrolladorId'];
+        $dNombre = $_POST['nombreDesarrrollador'];
+        $dSede = $_POST['sedeDesarrrollador'];
+        $dAño = $_POST['fundacionDesarrrollador'];
+        $dProp = $_POST['propietarioDesarrrollador'];
         $controller = new JuegoController();
-        $controller->updateDesarrollador($dId,$dNombre,$dSede,$dAño,$dProp);//CREAR ESTA FUNCION
+        $controller->updateDesarrollador($dId, $dNombre, $dSede, $dAño, $dProp); //CREAR ESTA FUNCION
         break;
 
     case 'creoDesarrollador':

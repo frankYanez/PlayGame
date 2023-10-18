@@ -19,7 +19,7 @@ class LoginController
     }
 
     public function showLogin()
-    {   
+    {
         $this->view->showLogin();
     }
 
@@ -34,8 +34,7 @@ class LoginController
             if (password_verify($pass, $dbUser[0]["password"])) {
                 LoginHelper::login($dbUser);
                 header("Location: " . BASE_URL);
-                echo($dbUser);
-
+                echo ($dbUser);
             } else { //La contaseña es incorrecta
                 $this->view->showLogin("Contraseña Incorrecta");
             }
@@ -45,18 +44,7 @@ class LoginController
     }
     //FALTA TODO LO DE MANTENER ABIERTA LA SESSION
     //VER VENTANA DE ADMINISTRADOR
-    public function showAdminWindow()
-    {
-        $juegoModelo = new JuegoModel();
-        $juegos = $juegoModelo->getJuegos();
-        if ($this->model->isAdmin()) { //ME QUEDE ACA
-            echo ("Es admin");
-            $this->view->showAdminWindow($juegos);
-        } else {
-            echo ("no es admin");
-            header("../../templates/header.phtml");
-        }
-    }
+
 
     public function logout()
     {

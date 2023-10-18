@@ -22,7 +22,7 @@ class JuegoController
     {
         LoginHelper::init();
         $desarrolladores = $this->model->getDesarrolladores();
-        if (isset($_SESSION['USER_ID'])&& isset($_SESSION['USER_NAME'])) //HAY UNA SESION ABIERTA
+        if (isset($_SESSION['USER_ID']) && isset($_SESSION['USER_NAME'])) //HAY UNA SESION ABIERTA
         {
             $this->view->showDesarrolladores($desarrolladores); //LE PASO A LA VISTA LOS DESARROLLADORES
             $this->view->showFormularioDesarrolladores();
@@ -49,7 +49,6 @@ class JuegoController
             } else {
                 $this->showDesarrolladores(); //NO TOMA PARAMETRO
                 $this->view->showError("No se puede agregar desarrollador, completar todos los campos");
-
             }
         } else {
             $this->showDesarrolladores(); //NO TOMA PARAMETRO
@@ -59,24 +58,22 @@ class JuegoController
     }
 
     //OBTENGO DESARROLLADOR
-   
+
     public function getDesarrollador($id)
     {
         $desarrollador = $this->model->getDesarrollador($id);
         $this->view->showUpdateFormDesarrollador($desarrollador);
-
     }
 
-    public function updateDesarrollador($dId,$dNombre,$dSede,$dAño,$dProp)
+    public function updateDesarrollador($dId, $dNombre, $dSede, $dAño, $dProp)
     {
-        
-        $this->model->updateDesarrollador($dId,$dNombre,$dSede,$dAño,$dProp);
-        $this->showDesarrolladores();
 
+        $this->model->updateDesarrollador($dId, $dNombre, $dSede, $dAño, $dProp);
+        $this->showDesarrolladores();
     }
 
 
-    
+
     //ELIMINO DESARROLLADOR
 
     public function deleteDesarrollador($id)
@@ -95,7 +92,6 @@ class JuegoController
     {
         $categorias = $this->model->getCategoria();
         return $categorias;
-
     }
 
     //OBTENGO JUEGOS POR CATEGORIA
@@ -112,6 +108,15 @@ class JuegoController
     {
         $juegos = $this->model->getJuegos();
         $this->view->showGames($juegos);
+    }
+
+
+
+    //Vista de Edicion Administrador
+    public function showJuegosAdmin()
+    {
+        $juegos = $this->model->getJuegos();
+        $this->view->showAdminWindow($juegos);
     }
 
     //CREO JUEGO
@@ -150,8 +155,7 @@ class JuegoController
 
     public function updateJuego($id)
     {
-        $this->model->updateJuego($id, $_POST['nombre'], $_POST['genero'], $_POST['año']);
-
+        $this->model->updateGame($id, $_POST['nombre'], $_POST['genero'], $_POST['año']);
     }
 
 
